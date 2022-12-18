@@ -67,4 +67,5 @@ const Header = () => (
     </motion.div>
   </div>
 );
+
 export default AppWrap(Header, 'home');
