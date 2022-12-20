@@ -14,6 +14,11 @@ export default {
             type:'string'
         },
         {
+            name:'phone',
+            title:'Phone',
+            type:'number'
+        },
+        {
             name:'message',
             title:'Message',
             type:'text'

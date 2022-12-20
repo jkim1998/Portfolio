@@ -7,7 +7,15 @@
       flex-direction: column;
     }
   }
-  
+    
+  .footer_container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+  }
+
   .app__footer-cards {
     width: 60%;
     display: flex;
@@ -15,9 +23,10 @@
     align-items: center;
     flex-wrap: wrap;
     margin: 4em 2rem 2rem;
+    gap: 20%;
   
     .app__footer-card {
-      min-width: 290px;
+      min-width: 40%;
       display: flex;
       flex-direction: row;
       justify-content: flex-start;
@@ -65,7 +74,7 @@
   .app__footer-cards .app__footer-card:last-child:hover {
     box-shadow: 0 0 25px #f2f7fb;
   }
-  
+
   .app__footer-form {
     width: 60%;
     flex-direction: column;

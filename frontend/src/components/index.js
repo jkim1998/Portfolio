@@ -1,9 +1,9 @@
 import NavigationDots from './NavigationDots';
-import SocialMedia from './SocialMedia';
+import ContactInfo from './ContactInfo';
 import Navbar from './Navbar/Navbar';
 
 export {
   NavigationDots,
-  SocialMedia,
+  ContactInfo,
   Navbar,
 };
