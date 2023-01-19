@@ -1,4 +1,4 @@
-# ![WebApp](https://github.com/jkim1998/Movie-DB-/blob/main/screenshot/page1.png)
+# ![WebApp](https://github.com/jkim1998/Portfolio/blob/main/screenshot/page1.png)
 # Portfolio
 <table>
 <tr>
@@ -18,35 +18,30 @@ https://jonathankim980.com
 
 ### Main Page
 
-# ![WebApp](https://github.com/jkim1998/Movie-DB-/blob/main/screenshot/page1.png)
+# ![WebApp](https://github.com/jkim1998/Portfolio/blob/main/screenshot/page1.png)
 
 ### About
 
-# ![WebApp](https://github.com/jkim1998/Movie-DB-/blob/main/screenshot/search.png)
-# ![WebApp](https://github.com/jkim1998/Movie-DB-/blob/main/screenshot/searchbar.png)
-
-make sure to use correct keyword
-
-# ![WebApp](https://github.com/jkim1998/Movie-DB-/blob/main/screenshot/not%20found.png)
+# ![WebApp](https://github.com/jkim1998/Portfolio/blob/main/screenshot/page2.png)
 
 ### Skills
 
 Click the poster to open a pop-up that displays detailed information about the movie. click anywhere outside to exit 
 
-# ![WebApp](https://github.com/jkim1998/Movie-DB-/blob/main/screenshot/moviedetail.png)
+# ![WebApp](https://github.com/jkim1998/Portfolio/blob/main/screenshot/page3.png)
 
 ### Work
 
 A short section that contains brief information about the page 
 
-# ![WebApp](https://github.com/jkim1998/Movie-DB-/blob/main/screenshot/footer.png)
+# ![WebApp](https://github.com/jkim1998/Portfolio/blob/main/screenshot/page4.png)
 
 
 ### Contact me page
 
 You can send me an Email on this page. Please fill out your name and email address so I can get back to you!
 
-# ![WebApp](https://github.com/jkim1998/Movie-DB-/blob/main/screenshot/contact.png)
+# ![WebApp](https://github.com/jkim1998/Portfolio/blob/main/screenshot/page5.png)
 
 ## Mobile support
 This WebApp is fully compatible with mobile devices of all sizes and all OS's, and consistent improvements are being made.
