@@ -11,13 +11,19 @@ const Work = () => {
   const [filterWork, setFilterWork] = useState([]);
   const [activeFilter, setActiveFilter] = useState("All");
   const [animateCard, setAnimateCard] = useState({ y: 0, opacity: 1 });
+  const [info, setInfo] = useState([]);
 
   useEffect(() => {
-    const query = '*[_type == "works"]';
+    const query_work = '*[_type == "works"]';
+    const query = '*[_type == "personalinfo"]';
 
-    client.fetch(query).then((data) => {
+    client.fetch(query_work).then((data) => {
       setWorks(data);
       setFilterWork(data);
+    });
+
+    client.fetch(query).then((data) => {
+      setInfo(data);
     });
   }, []);
 
@@ -114,18 +120,20 @@ const Work = () => {
           </div>
         ))}
       </motion.div>
-      <div className="link_button">
-        <AiFillGithub className="githubicon" />
-        <button className="github">
-          <a
-            href="https://github.com/jkim1998?tab=repositories"
-            target="_blank"
-            rel="noreferrer"
-          >
-            Check out GitHub Repository
-          </a>
-        </button>
-      </div>
+      {info.map((data) => (
+        <div className="link_button">
+          <AiFillGithub className="githubicon" />
+          <button className="github">
+            <a
+              href={data.github}
+              target="_blank"
+              rel="noreferrer"
+            >
+              Check out GitHub Repository
+            </a>
+          </button>
+        </div>
+      ))}
     </>
   );
 };

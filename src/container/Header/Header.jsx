@@ -1,7 +1,12 @@
 import React, { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 
-import { AiFillGithub, AiFillLinkedin, AiOutlineBold, AiOutlineDown } from "react-icons/ai";
+import {
+  AiFillGithub,
+  AiFillLinkedin,
+  AiOutlineBold,
+  AiOutlineDown,
+} from "react-icons/ai";
 import { AppWrap } from "../../wrapper";
 import { images } from "../../constants";
 import { urlFor, client } from "../../client";
@@ -10,29 +15,29 @@ import { MdContactMail } from "react-icons/md";
 import "./Header.scss";
 
 const Header = () => {
-  const [abouts, setAbouts] = useState([]);
-  const style = { color: "white", fontsize: "1.5em" };
+  const [info, setInfo] = useState([]);
 
   useEffect(() => {
-    const query = '*[_type == "home"]';
+    const query = '*[_type == "personalinfo"]';
 
     client.fetch(query).then((data) => {
-      setAbouts(data);
+      setInfo(data);
     });
   }, []);
 
   return (
     <>
-      <div className="content">
-        <div className="banner_introduction">
-          <div className="left">
-            <div className="introduction">
-              <h4>Hello there! </h4>
-              <p>
-                I am <span>Jonathan Kim,</span>
-              </p>
-              <h5>A Full Stack Developer</h5>
-              {/* <div className="social">
+      {info.map((data) => (
+        <div className="content">
+          <div className="banner_introduction">
+            <div className="left">
+              <div className="introduction">
+                <h4>Hello there! </h4>
+                <p>
+                  I am <span>{data.name},</span>
+                </p>
+                <h5>a {data.title}</h5>
+                {/* <div className="social">
                 <a
                   href="https://github.com/jkim1998"
                   target="_blank"
@@ -48,30 +53,26 @@ const Header = () => {
                   <AiFillLinkedin size={40} id="linkedin" />linkedin.com/in/jkim980
                 </a>
               </div> */}
+              </div>
+              <div className="downloads">
+                <button id="resume">
+                  <a href={data.resume} target="_blank" rel="noreferrer">
+                    <FaFileDownload size={20} /> Download CV
+                  </a>
+                </button>
+                <button id="contacts">
+                  <a href="#contact">
+                    <MdContactMail size={20} />
+                    Contact Me
+                  </a>
+                </button>
+              </div>
             </div>
-            <div className="downloads">
-              <button id="resume">
-                <a
-                  href="https://docs.google.com/document/d/1Fgen3_VVCRwg_rAdSjEKvbnTO0Eh8rC5kGcb7q-MqiI/edit#"
-                  target="_blank"
-                  rel="noreferrer"
-                >
-                  <FaFileDownload size={20} /> Download CV
-                </a>
-              </button>
-              <button id="contacts">
-                <a href="#contact">
-                  <MdContactMail size={20} />
-                  Contact Me
-                </a>
-              </button>
+            <div className="right">
+              <img src={images.profile} />
             </div>
           </div>
-          <div className="right">
-            <img src={images.profile} />
-          </div>
-        </div>
-        {/* <div className="bottom">
+          {/* <div className="bottom">
           <p>My Services</p>
           <div className="app__profiles">
             {abouts.map((about, index) => (
@@ -95,10 +96,11 @@ const Header = () => {
             ))}
           </div>
         </div> */}
-        <a href="/#about" className="nextpage">
-          <AiOutlineDown />
-        </a>
-      </div>
+          <a href="/#about" className="nextpage">
+            <AiOutlineDown />
+          </a>
+        </div>
+      ))}
     </>
   );
 };

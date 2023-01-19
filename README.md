@@ -3,7 +3,7 @@
 <table>
 <tr>
 <td>
-  A Webapp to showcase numerous movies around the world, sorting them by Popularity, ratings, keywords, and others. 
+  A portfolio webapp to showcase my professional experience and skills. 
 </td>
 </tr>
 </table>
@@ -20,10 +20,7 @@ https://jonathankim980.com
 
 # ![WebApp](https://github.com/jkim1998/Movie-DB-/blob/main/screenshot/page1.png)
 
-### Search bar
-
-Search for movies in the search bar.
-You can either click or press enter.
+### About
 
 # ![WebApp](https://github.com/jkim1998/Movie-DB-/blob/main/screenshot/search.png)
 # ![WebApp](https://github.com/jkim1998/Movie-DB-/blob/main/screenshot/searchbar.png)
@@ -32,13 +29,13 @@ make sure to use correct keyword
 
 # ![WebApp](https://github.com/jkim1998/Movie-DB-/blob/main/screenshot/not%20found.png)
 
-### Movie Details
+### Skills
 
 Click the poster to open a pop-up that displays detailed information about the movie. click anywhere outside to exit 
 
 # ![WebApp](https://github.com/jkim1998/Movie-DB-/blob/main/screenshot/moviedetail.png)
 
-### Footer
+### Work
 
 A short section that contains brief information about the page 
 
@@ -96,12 +93,8 @@ Thank you in advance.
 ## Others
 
 - Deployment: Vercel
-- API: TMDB API 
+- Back End: Sanity
 
 ## To-do
-#High priority
-- mobile, zoomed in/out style 
 
-#Low priority
-- help center? or replace with something useful
-- Newsletter (custom required form)
+-string manipulation (phone number, email address)
