@@ -9,10 +9,14 @@
   }
 
   .app__skills-container {
-    background-color: rgb(131, 233, 202);
+    background-color: rgb(250, 250, 250);
     margin: 50px;
     padding: 50px;
     border-radius: 25px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
     
     h1 {
       margin: 20px 20px 20px 40px;

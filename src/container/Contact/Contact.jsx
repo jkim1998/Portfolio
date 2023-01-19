@@ -6,14 +6,25 @@ import { GrMail } from "react-icons/gr";
 
 import Navbar from "../../components/Navbar/Navbar";
 import { AppWrap, MotionWrap } from "../../wrapper";
+import { motion } from "framer-motion";
+import { urlFor, client } from "../../client";
 
 import "./Contact.css";
 
 const Contact = () => {
+  const [contact, setContact] = useState([]);
   const form = useRef();
-
   const [status, setStatus] = useState("");
   const [error_email, setErrorEmail] = useState("");
+  const [thispage, setThispage] = useState(false);
+
+  useEffect(() => {
+    const query = '*[_type == "contact"]';
+
+    client.fetch(query).then((data) => {
+      setContact(data);
+    });
+  }, []);
 
   const sendEmail = (e) => {
     //prevent re-render
@@ -52,8 +63,16 @@ const Contact = () => {
       }, 3000);
     }
   }, [status]);
+
+  const isThisPage = () => {
+    setThispage(true);
+    setTimeout(() => {
+      setThispage(false);
+    }, 1000);
+  };
+
   return (
-    <div className="content">
+    <div className="content_contact">
       <div className="banner">
         <h1>Contact</h1>
       </div>
@@ -95,9 +114,27 @@ const Contact = () => {
             </div>
           </div>
           <div className="links">
-            <AiFillGithub size={40} id="github"/>
-            <AiFillLinkedin size={40} id="linkedin"/>
-            <AiOutlineBold size={40} id=""/>
+            <a
+              href="https://github.com/jkim1998"
+              target="_blank"
+              rel="noreferrer"
+            >
+              <AiFillGithub size={40} id="github" />
+            </a>
+            <a
+              href="https://www.linkedin.com/in/jkim980/"
+              target="_blank"
+              rel="noreferrer"
+            >
+              <AiFillLinkedin size={40} id="linkedin" />
+            </a>
+            {!thispage ? (
+              <a onClick={isThisPage}>
+                <AiOutlineBold size={40} id="" />
+              </a>
+            ) : (
+              <p>It is this page!</p>
+            )}
           </div>
         </div>
       </div>
@@ -120,4 +157,8 @@ const invalidEmail = () => {
     <p>this is required</p>
   </div>;
 };
-export default AppWrap(MotionWrap(Contact, "app__contacts"), "contact");
+export default AppWrap(
+  MotionWrap(Contact, "app__footer"),
+  "contact",
+  "app__whitebg"
+);

@@ -1,31 +1,49 @@
-.test {
+.content {
   display: flex;
   flex-direction: column;
   width: 100%;
   height: 100%;
+  // justify-content: center;
+  align-items: center;
 
-  .test1 {
+
+  .banner_introduction {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-    margin: 200px 100px 0 100px;
-    height: 80%;
+    width: 80%;
+    height: 50%;
+    padding-top: 50px;
+    margin-bottom: 50px;
+    margin-top: 300px;
+    margin-bottom: 300px;
 
-    .test5 {
+    .left {
       width: 70%;
 
-      .test2 {
+      .introduction {
         display: flex;
         flex-direction: column;
         justify-content: center;
-        margin: 100px 0 0 100px;
-        width: 100%;
         height: 70%;
-        // background-color: red;
+        margin-top: 50px;
 
-        p {
+        p,
+        h4,
+        h5 {
           font-size: 50px;
           font-weight: 900;
+          margin-left: 100px;
+        }
+
+        h4 {
+          font-size: 15px;
+          line-height: 10px;
+        }
+
+        h5 {
+          font-size: 30px;
+          line-height: 100px;
         }
 
         span {
@@ -33,25 +51,40 @@
           font-weight: 1400;
           color: blue;
         }
+        
+        .social {
+          margin: 0 100px;
+          display: flex;
+          width: fit-content;
+          flex-direction: row;
+          align-items: center;
+          gap: 20px;
+
+          a {
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            align-items: center;
+          }
+        }
       }
 
-      .test3 {
+      .downloads {
         display: flex;
         flex-direction: row;
-        // justify-content: center;
-        gap: 100px;
-        margin: 0 100px;
-        width: auto;
+        justify-content: space-between;
+        align-items: center;
+        padding: 0 100px;
+        width: 100%;
       }
 
     }
 
-    .test6 {
+    .right {
       width: 60%;
       display: flex;
       justify-content: center;
       align-items: center;
-      // background-color: yellow;
 
       img {
         width: 100%;
@@ -59,22 +92,92 @@
     }
   }
 
-  .test4 {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: center;
-    height: 20%;
-    margin: 0 100px 100px 100px;
-    padding: 0 120px;
+  #resume {
+    background-color: rgb(56, 189, 127);
+    border: 2px solid rgb(255, 255, 255);
+  }
+
+  #contacts {
+    background-color: rgb(255, 255, 255);
+    border: 2px solid rgb(56, 189, 127);
+
+    a {
+      color: rgb(56, 189, 127);
+    }
+  }
+
+  button:hover {
+    opacity: 50%;
+    cursor: pointer;
   }
 
   button {
     width: 200px;
     height: 60px;
-    background-color: rgb(143, 185, 248);
-    border-radius: 15px;
     border: none;
-    color: white;
+
+    a {
+      color: white;
+      font-weight: 900;
+      text-decoration: none;
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+      align-items: center;
+      gap: 10px;
+    }
+  }
+
+  .bottom {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 80%;
+
+    p {
+      font-size: 30px;
+      font-weight: 900;
+    }
+
+    .app__profiles {
+      display: flex;
+      width: 100%;
+      flex-direction: row;
+      justify-content: space-between;
+      padding: 0 100px;
+      border-top: 2px solid rgb(137, 231, 109);
+
+      .services {
+        background-color: rgb(247, 248, 247);
+        border-radius: 15px;
+        width: 200px;
+        height: 150px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        margin-top: 50px;
+
+        img {
+          height: 40px;
+          width: auto;
+        }
+      }
+    }
+  }
+  .nextpage {
+    height: 45px;
+    width: 45px;
+    border: 1px solid var(--lightGray-color);
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .nextpage:hover {
+    
+    background-color: #cbcbcb;
   }
 }
