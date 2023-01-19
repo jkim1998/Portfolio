@@ -3,10 +3,10 @@ import abouts from './abouts'
 import frontend from './frontend'
 import backend from './backend'
 import workExperience from './workExperience'
-import contact from './contact'
+import personalinfo from './personalinfo'
 
 export const schemaTypes = [
-  contact,
+  personalinfo,
   abouts,
   workExperience,
   works,
