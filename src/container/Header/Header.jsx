@@ -30,7 +30,7 @@ const Header = () => {
       {info.map((data) => (
         <div className="content">
           <div className="banner_introduction">
-            <div className="left">
+            <div className="left_intro">
               <div className="introduction">
                 <h4>Hello there! </h4>
                 <p>
@@ -68,7 +68,7 @@ const Header = () => {
                 </button>
               </div>
             </div>
-            <div className="right">
+            <div className="right_intro">
               <img src={images.profile} />
             </div>
           </div>
@@ -96,9 +96,9 @@ const Header = () => {
             ))}
           </div>
         </div> */}
-          <a href="/#about" className="nextpage">
+          {/* <a href="/#about" className="nextpage">
             <AiOutlineDown />
-          </a>
+          </a> */}
         </div>
       ))}
     </>

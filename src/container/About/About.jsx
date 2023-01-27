@@ -42,26 +42,26 @@ const About = () => {
             <div className="middle">
               <div className="contactinfo_container">
                 <p>{data.email}</p>
-                <GrMail size={20} />
+                <GrMail size={20} className="icon"/>
               </div>
               <div className="contactinfo_container">
                 <p>(737) 484 - 2504</p>
-                <BsTelephoneFill size={20} />
+                <BsTelephoneFill size={20} className="icon"/>
               </div>
               <div className="contactinfo_container">
                 <p>United States</p>
-                <ImLocation size={20} />
+                <ImLocation size={20} className="icon"/>
               </div>
             </div>
             <div className="divider" />
             <div className="bottom">
               <div className="contactinfo_container">
                 <p>github.com/jkim1998</p>
-                <BsGithub size={20} />
+                <BsGithub size={20} className="icon"/>
               </div>
               <div className="contactinfo_container">
                 <p>linkedin.com/in/jkim980</p>
-                <BsLinkedin size={20} />
+                <BsLinkedin size={20} className="icon"/>
               </div>
             </div>
           </div>

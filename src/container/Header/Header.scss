@@ -1,17 +1,12 @@
 .content {
   display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  width: 100%;
-
 
   .banner_introduction {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
 
-    .left {
+    .left_intro {
       width: 70%;
       display: flex;
       flex-direction: column;
@@ -76,7 +71,7 @@
 
     }
 
-    .right {
+    .right_intro {
       width: 60%;
       display: flex;
       justify-content: center;
@@ -171,9 +166,12 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    position: absolute;
-    bottom: 50px;
-
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    transform: translate(-50%, -50%);
+    margin: 0 auto;
   }
 
   .nextpage:hover {
@@ -182,38 +180,71 @@
   }
 }
 
-@media screen and (min-width: 2500px) {}
+@media screen and (min-width: 1800px) {
+  .introduction {
+    text-align: right;
+    margin-right: 200px;
+  }
+}
 
 @media screen and (max-width: 1400px) {
   .banner_introduction {
-    display: flex !important;
-    flex-direction: column-reverse !important;
+    // display: flex !important;
+    // flex-direction: column-reverse !important;
     // width: 50% !important;
   }
 
-  .right {
+  .left_intro {
+    width: 100% !important;
+  }
+
+  .right_intro {
     display: none !important;
+  }
+
+  .downloads {
+    margin-top: 50px;
   }
 }
 
 @media screen and (max-width: 1150px) {
-  .left {
-    background-color: yellow;
-    width: 80vw;
-  }
-
-  .right {
-    display: none !important;
+  .left_intro {
+    // background-color: yellow;
+    // width: 80vw;
   }
 
   .banner_introduction {
-    display: flex !important;
-    flex-direction: column-reverse !important;
+    // display: flex !important;
+    // flex-direction: column-reverse !important;
+  }
+
+  .icon {
+    display: none !important;
   }
 }
 
 @media screen and (max-width: 850px) {}
 
-@media screen and (max-width: 650px) {}
+@media screen and (max-width: 650px) {
+  .nextpage {
+    opacity: 5% !important;
+  }
+
+  .nextpage:hover {
+    opacity: 100% !important;
+  }
+
+  .app__navbar {
+    opacity: 0% !important
+  }
+
+  .app__navbar:hover {
+    opacity: 100% !important;
+  }
+}
 
 @media screen and (max-width: 500px) {}
+
+.app__navbar-menu:hover {
+  cursor: pointer;
+}
