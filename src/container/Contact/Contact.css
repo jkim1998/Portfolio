@@ -31,7 +31,9 @@ input {
   display: flex;
   flex-direction: row;
   justify-content: center;
+  align-items: center;
   border-top: 1px solid rgb(79, 228, 79);
+  max-width: 80vw;
 }
 
 .main_page form {
@@ -43,7 +45,8 @@ input {
 
 .main_page form input,
 textarea {
-  width: 500px;
+  max-width: 500px;
+  width: 100vw;
   height: auto;
   border-radius: 8px;
   border: none;
@@ -72,7 +75,8 @@ textarea {
   padding-top: 30px;
 }
 
-.confirmation form input, .confirmation form textarea {
+.confirmation form input,
+.confirmation form textarea {
   border-bottom: 1px solid rgb(79, 228, 79);
   border-radius: 0;
 }
@@ -142,4 +146,50 @@ textarea {
   flex-direction: column;
 }
 
+@media screen and (min-width: 2000px) {
+  .content_contact {
+  }
+  .app {
+    width: 100vw;
+  }
+}
 
+@media screen and (max-width: 1150px) {
+  .main_page {
+    flex-direction: column;
+  }
+  .app__container {
+    width: 100vw;
+  }
+  .app {
+    width: 100vw;
+  }
+}
+
+@media screen and (max-width: 850px) {
+}
+
+@media screen and (max-width: 650px) {
+  .main_page form input,
+  textarea {
+    max-width: 300px;
+    width: 100vw;
+    height: auto;
+    border-radius: 8px;
+    border: none;
+    margin: 10px;
+    padding: 20px;
+    color: black;
+  }
+}
+
+@media screen and (max-width: 500px) {
+  .main_page {
+    left: 0;
+    right: 0;
+  }
+  body {
+    margin: 0;
+    padding: 0;
+  }
+}

@@ -1,92 +1,157 @@
 .app__skills {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.head-text {
+  width: 100%;
+  text-align: center;
+  margin-bottom: 100px;
+}
+
+.sections {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+}
+
+.app__skills-container {
+  background-color: rgb(250, 250, 250);
+  padding: 50px;
+  border-radius: 25px;
+  height: 100%;
+  box-shadow: 10px 5px 5px rgb(228, 215, 215);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  h1 {
+    margin: 20px 20px 20px 40px;
+    width: 100%;
+    text-align: center;
+  }
+
+  @media screen and (max-width: 900px) {
     width: 100%;
     flex-direction: column;
+    column-count: 3;
   }
-  
+}
+
+.app__skills-list {
+  display: grid;
+  grid-template-columns: auto auto auto auto;
+  justify-content: center;
+  align-items: center;
+
+  @media screen and (max-width: 900px) {
+    margin-right: 0;
+    justify-content: center;
+    align-items: center;
+    column-count: 3;
+  }
+}
+
+.app__skills-item {
+  flex-direction: column;
+  text-align: center;
+
+  margin: 1rem;
+
+  transition: all 0.3s ease-in-out;
+
+  div {
+    width: 90px;
+    height: 90px;
+    border-radius: 50%;
+    background-color: #fef4f5;
+
+    img {
+      width: 50%;
+      height: 50%;
+    }
+
+    &:hover {
+      box-shadow: 0 0 25px #fef4f5;
+    }
+
+    @media screen and (min-width: 2000px) {
+      width: 150px;
+      height: 150px;
+    }
+
+    @media screen and (max-width: 450px) {
+      width: 70px;
+      height: 70px;
+    }
+  }
+
+  p {
+    font-weight: 500;
+    margin-top: 0.5rem;
+  }
+
+  @media screen and (min-width: 2000px) {
+    margin: 1rem 2rem;
+
+    p {
+      margin-top: 1rem;
+    }
+  }
+}
+
+@media screen and (min-width: 2500px) {
   .sections {
-    display: flex;
-    flex-direction: row;
+    justify-content: center;
+    gap: 10vw;
+  }
+}
+
+@media screen and (max-width: 1400px) {
+  .app__skills-container {
+    border-radius: 0;
+  }
+}
+
+@media screen and (max-width: 1150px) {
+  .sections {
+    flex-direction: column;
+  }
+
+  .app__skills-list {
+    grid-template-columns: auto auto auto;
+  }
+}
+
+@media screen and (max-width: 850px) {}
+
+@media screen and (max-width: 650px) {
+  .app__skills-list {
+    grid-template-columns: auto auto;
+  }
+}
+
+@media screen and (max-width: 500px) {
+  .sections {}
+
+  .app__skills-list {
+    grid-template-columns: auto;
   }
 
   .app__skills-container {
-    background-color: rgb(250, 250, 250);
-    margin: 50px;
-    padding: 50px;
-    border-radius: 25px;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    
+
     h1 {
-      margin: 20px 20px 20px 40px;
-    }
-  
-    @media screen and (max-width: 900px) {
-      width: 100%;
-      flex-direction: column;
-    column-count: 3;
+      text-align: center;
     }
   }
-  
-  .app__skills-list {
-    display: grid;
-    grid-template-columns: auto auto auto auto;
-    justify-content: center;
-    align-items: center;
-    
-    @media screen and (max-width: 900px) {
-      margin-right: 0;
-      justify-content: center;
-      align-items: center;
-    column-count: 3;
-    }
-  }
-  
-  .app__skills-item {
-    flex-direction: column;
-    text-align: center;
-  
-    margin: 1rem;
-  
-    transition: all 0.3s ease-in-out;
-  
-    div {
-      width: 90px;
-      height: 90px;
-      border-radius: 50%;
-      background-color: #fef4f5;
-  
-      img {
-        width: 50%;
-        height: 50%;
-      }
-  
-      &:hover {
-        box-shadow: 0 0 25px #fef4f5;
-      }
-  
-      @media screen and (min-width: 2000px) {
-        width: 150px;
-        height: 150px;
-      }
-  
-      @media screen and (max-width: 450px) {
-        width: 70px;
-        height: 70px;
-      }
-    }
-  
-    p {
-      font-weight: 500;
-      margin-top: 0.5rem;
-    }
-  
-    @media screen and (min-width: 2000px) {
-      margin: 1rem 2rem;
-  
-      p {
-        margin-top: 1rem;
-      }
-    }
-  }
+}

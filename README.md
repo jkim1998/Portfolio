@@ -73,9 +73,9 @@ To fix a bug or enhance an existing module, follow these steps:
 
 ### Bug / Feature Request
 
-If you found a bug and would like to create an issue for this repository, click [here](https://github.com/jkim1998/Movie-DB-/issues/new).
+If you found a bug and would like to create an issue for this repository, click [here](https://github.com/jkim1998/Portfolio/issues/new).
 
-If you would like to request a new feature, feel free to do so by opening an issue [here](https://github.com/jkim1998/Movie-DB-/issues/new).
+If you would like to request a new feature, feel free to do so by opening an issue [here](https://github.com/jkim1998/Portfolio/issues/new).
 
 Thank you in advance.
 
