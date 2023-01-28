@@ -37,6 +37,10 @@
           text-transform: capitalize;
         }
 
+        h6 {
+          font-size: 50px;
+        }
+
         span {
           font-size: 60px;
           font-weight: 1400;
@@ -221,9 +225,21 @@
   .icon {
     display: none !important;
   }
+
+  .downloads {
+    margin-left: 50px !important;
+    justify-content: space-between !important;
+    padding: 0 !important;
+    gap: 0 !important;
+  }
 }
 
-@media screen and (max-width: 850px) {}
+@media screen and (max-width: 850px) {
+  .downloads {
+    padding: 0 !important;
+    gap: 0 !important;
+  }
+}
 
 @media screen and (max-width: 650px) {
   .nextpage {
@@ -243,7 +259,25 @@
   }
 }
 
-@media screen and (max-width: 500px) {}
+@media screen and (max-width: 500px) {
+  .banner_introduction {
+    max-width: 90vw;
+  }
+
+  .downloads {
+    margin-left: 0 !important;
+    padding: 0 !important;
+    gap: 0 !important;
+  }
+
+  p {
+    font-size: 20px !important;
+  }
+
+  h6 {
+    margin-right: 200px !important;
+  }
+}
 
 .app__navbar-menu:hover {
   cursor: pointer;

@@ -41,7 +41,7 @@ const About = () => {
             <div className="divider" />
             <div className="middle">
               <div className="contactinfo_container">
-                <p>{data.email}</p>
+                <p className="email">{data.email}</p>
                 <GrMail size={20} className="icon"/>
               </div>
               <div className="contactinfo_container">

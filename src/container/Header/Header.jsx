@@ -33,9 +33,9 @@ const Header = () => {
             <div className="left_intro">
               <div className="introduction">
                 <h4>Hello there! </h4>
-                <p>
+                <h6>
                   I am <span>{data.name},</span>
-                </p>
+                </h6>
                 <h5>a {data.title}</h5>
                 {/* <div className="social">
                 <a
