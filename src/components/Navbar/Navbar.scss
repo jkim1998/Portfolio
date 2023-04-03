@@ -3,15 +3,13 @@
   justify-content: space-between;
   align-items: center;
   width: 100%;
-  padding: 1rem 2rem;
-  // background: rgba(255, 255, 255, 0.25);
+  padding: 1rem;
+  background: black;
   // background-color: aqua;
   // box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
-  backdrop-filter: blur(4px);
-  -webkit-backdrop-filter: blur(4px);
   border: 1px solid rgba(255, 255, 255, 0.18);
   position: fixed;
-  z-index: 2;
+  z-index: 10;
 }
 
 .app__navbar-logo {
@@ -36,7 +34,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
-
+  color: white;
   list-style: none;
 
   li {
@@ -115,7 +113,7 @@
     align-items: flex-end;
     flex-direction: column;
 
-    background: url('../../assets/bgWhite.png');
+    // background: url('../../assets/bgWhite.png');
     background-color: var(--white-color);
     background-size: cover;
     background-repeat: repeat;

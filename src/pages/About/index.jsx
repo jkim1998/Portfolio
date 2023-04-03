@@ -1,10 +1,8 @@
 import React, { useState, useEffect } from "react";
-import { motion } from "framer-motion";
 
 import { AppWrap, MotionWrap } from "../../wrapper";
 import "./About.scss";
 import { urlFor, client } from "../../client";
-import { images } from "../../constants";
 
 import { BsTelephoneFill, BsGithub, BsLinkedin } from "react-icons/bs";
 import { ImLocation } from "react-icons/im";
@@ -31,7 +29,7 @@ const About = () => {
       {info.map((data) => (
         <div className="container">
           <div className="left">
-            <img src={images.businesscard} />
+            {/* <img src={images.businesscard} /> */}
           </div>
           <div className="right">
             <div className="top">

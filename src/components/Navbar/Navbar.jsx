@@ -1,49 +1,88 @@
-import React, { useState } from 'react';
-import { HiMenuAlt4, HiX } from 'react-icons/hi';
-import { motion } from 'framer-motion';
-
-import { images } from '../../constants';
-import './Navbar.scss';
+import React, { useState } from "react";
+import { HiMenuAlt4, HiX } from "react-icons/hi";
+import { motion } from "framer-motion";
+import {
+  Box,
+  Stack,
+  Button,
+  Typography,
+  Link,
+  Avatar,
+  List,
+} from "@mui/material";
+import { Logo_dark, Logo_light } from "../../assets";
+import "./Navbar.scss";
 
 const Navbar = () => {
   const [toggle, setToggle] = useState(false);
-  
+
   return (
-    <nav className="app__navbar">
-      <a href="/"className="app__navbar-logo">
-        <img src={images.logo} alt="logo" />
-      </a>
-      <ul className="app__navbar-links">
-        {['home', 'about','skills', 'work', 'contact'].map((item) => (
-          <li className="app__flex p-text" key={`link-${item}`}>
-            <div />
-            <a href={`#${item}`}>{item}</a>
+    <Stack
+      sx={{
+        display: "flex",
+        flexDirection: "row",
+        justifyContent: "space-between",
+        alignItems: "center",
+        bgcolor: "red",
+        paddingY: "0.5rem",
+      }}
+    >
+      <Link
+        href="/"
+        sx={{
+          display: "flex",
+          justifyContent: "flex-start",
+          alignItems: "center",
+          cursor: "pointer",
+        }}
+      >
+        <Avatar
+          variant="square"
+          src={Logo_light}
+          alt="logo"
+          sx={{
+            width: "100%",
+          }}
+        />
+      </Link>
+      <List
+        sx={{
+          display: "flex",
+          flexDirection: "row",
+          justifyContent: "space-between",
+          width: "50%",
+        }}
+      >
+        {["home", "about", "skills", "work", "contact"].map((item) => (
+          <li key={`link-${item}`}>
+            <Box />
+            <Link href={`#${item}`}>{item}</Link>
           </li>
         ))}
-      </ul>
+      </List>
 
-      <div className="app__navbar-menu">
+      <Box>
         <HiMenuAlt4 onClick={() => setToggle(true)} />
 
         {toggle && (
-          <motion.div
+          <Box
             whileInView={{ x: [300, 0] }}
-            transition={{ duration: 0.85, ease: 'easeOut' }}
+            transition={{ duration: 0.85, ease: "easeOut" }}
           >
             <HiX onClick={() => setToggle(false)} />
             <ul>
-              {['home', 'about','skills', 'work', 'contact'].map((item) => (
+              {["home", "about", "skills", "work", "contact"].map((item) => (
                 <li key={item}>
-                  <a href={`#${item}`} onClick={() => setToggle(false)}>
+                  <Link href={`#${item}`} onClick={() => setToggle(false)}>
                     {item}
-                  </a>
+                  </Link>
                 </li>
               ))}
             </ul>
-          </motion.div>
+          </Box>
         )}
-      </div>
-    </nav>
+      </Box>
+    </Stack>
   );
 };
 

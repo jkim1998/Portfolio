@@ -1,17 +1,32 @@
-import React from "react";
-
-import { About, Contact, Header, Skills, Work } from "./container";
+import Header from "./pages/Header";
+import About from "./pages/About";
+import Skills from "./pages/Skills";
+import Work from "./pages/Work";
+import Contact from "./pages/Contact";
 import { Navbar } from "./components";
 import "./App.scss";
 
+const content = [
+  <Navbar />,
+  <Header />,
+  <About />,
+  <Skills />,
+  <Work />,
+  <Contact />,
+];
+
+const bgColors = ["black", "black"];
+
 const App = () => (
   <div className="app">
-    <Navbar />
-    <Header />
-    <About />
-    <Skills />
-    <Work />
-    <Contact />
+    {content.map((item, index) => (
+      <div
+        key={index}
+        style={{ backgroundColor: bgColors[index % bgColors.length] }}
+      >
+        {item}
+      </div>
+    ))}
   </div>
 );
 

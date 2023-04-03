@@ -5,6 +5,7 @@ import { motion } from "framer-motion";
 import { AppWrap, MotionWrap } from "../../wrapper";
 import { urlFor, client } from "../../client";
 import "./Work.scss";
+import { pageStyle } from "../../assets/style";
 
 const Work = () => {
   const [works, setWorks] = useState([]);
