@@ -10,12 +10,12 @@ const content = [
   <Navbar />,
   <Header />,
   <About />,
-  <Skills />,
+  // <Skills />,
   <Work />,
   <Contact />,
 ];
 
-const bgColors = ["black", "black"];
+const bgColors = ["white", "black"];
 
 const App = () => (
   <div className="app">

@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import { HiMenuAlt4, HiX } from "react-icons/hi";
-import { motion } from "framer-motion";
 import {
   Box,
   Stack,
@@ -11,7 +10,6 @@ import {
   List,
 } from "@mui/material";
 import { Logo_dark, Logo_light } from "../../assets";
-import "./Navbar.scss";
 
 const Navbar = () => {
   const [toggle, setToggle] = useState(false);
@@ -23,8 +21,12 @@ const Navbar = () => {
         flexDirection: "row",
         justifyContent: "space-between",
         alignItems: "center",
-        bgcolor: "red",
         paddingY: "0.5rem",
+        borderBottom: "1px solid black",
+        position: "fixed",
+        width: "99%",
+        bgcolor: "black",
+        zIndex: "100",
       }}
     >
       <Link
@@ -54,34 +56,36 @@ const Navbar = () => {
         }}
       >
         {["home", "about", "skills", "work", "contact"].map((item) => (
-          <li key={`link-${item}`}>
-            <Box />
-            <Link href={`#${item}`}>{item}</Link>
-          </li>
+          <List key={`link-${item}`}>
+            <Link
+              href={`#${item}`}
+              sx={{
+                color: "white",
+                display: "flex",
+                flexDirection: "column",
+                justifyContent: "center",
+                alignItems: "center",
+                "&:hover": {
+                  textDecoration: "none",
+                  color: "skyblue",
+                },
+              }}
+            >
+              {item}
+              <Box
+                sx={{
+                  bgcolor: "white",
+                  marginTop: "0.5rem",
+                  width: "60%",
+                  height: "1px",
+                }}
+              ></Box>
+            </Link>
+          </List>
         ))}
       </List>
 
-      <Box>
-        <HiMenuAlt4 onClick={() => setToggle(true)} />
-
-        {toggle && (
-          <Box
-            whileInView={{ x: [300, 0] }}
-            transition={{ duration: 0.85, ease: "easeOut" }}
-          >
-            <HiX onClick={() => setToggle(false)} />
-            <ul>
-              {["home", "about", "skills", "work", "contact"].map((item) => (
-                <li key={item}>
-                  <Link href={`#${item}`} onClick={() => setToggle(false)}>
-                    {item}
-                  </Link>
-                </li>
-              ))}
-            </ul>
-          </Box>
-        )}
-      </Box>
+      <Box>{toggle && <></>}</Box>
     </Stack>
   );
 };

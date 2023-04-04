@@ -18,3 +18,19 @@ html, body, :root {
   --brown-color: #46364a;
   --white-color: #ffffff;
 }
+
+/* Customize scrollbar */
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+  z-index: 999; /* bring the scrollbar forward */
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: #c1c1c1;
+  border-radius: 5px;
+}
+
+::-webkit-scrollbar-track {
+  background-color: #f1f1f1;
+}

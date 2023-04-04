@@ -19,6 +19,21 @@ const jump = keyframes`
   }
 `;
 
+const tilt = keyframes`
+  0% {
+    transform: rotate(0deg);
+  }
+  25% {
+    transform: rotate(-3deg);
+  }
+  75% {
+    transform: rotate(3deg);
+  }
+  100% {
+    transform: rotate(0deg);
+  }
+`;
+
 const customButton = {
   display: "flex",
   flexDirection: "column",
@@ -33,6 +48,8 @@ const customButton = {
     backgroundColor: "rgb(250, 250, 250)",
     color: "black",
   },
+  transition: "all 0.1s",
+  // animation: `${tilt} 5s ease-in-out infinite`,
 };
 
 const Header = () => {
@@ -45,6 +62,7 @@ const Header = () => {
   const handleMouseLeave = () => {
     setHovering(true);
   };
+
   return (
     <Stack sx={{ ...pageStyle, position: "relative" }}>
       <Box
@@ -57,11 +75,24 @@ const Header = () => {
           marginBottom: "3rem",
         }}
       >
-        <Stack direction="row">
+        <Stack
+          direction="row"
+          sx={{
+            textAlign: "flex end",
+            alignItems: "flex-end",
+          }}
+        >
           <Typography variant="h2" sx={{ color: "white" }}>
             Hello! My Name is &nbsp;
           </Typography>
-          <Typography variant="h2" sx={{ color: "skyblue" }}>
+          <Typography
+            variant="h2"
+            sx={{
+              color: "skyblue",
+              borderBottom: "2px solid skyblue",
+              paddingBottom: "0.5rem",
+            }}
+          >
             {profile.name}
           </Typography>
         </Stack>

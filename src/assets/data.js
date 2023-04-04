@@ -5,9 +5,12 @@ export const profile = {
   title: "Full Stack Web Developer",
   email: "JonathanKim980@gmail.com",
   phone: "7374842504",
+  degree: "B.S. Computer Science",
+  school: "University of Texas at Dallas",
   github: "https://github.com/jkim1998",
   linkedin: "https://www.linkedin.com/in/jkim980/",
-  resume: "https://drive.google.com/file/d/1lcsy64CxMxMLtbo4AtM7VAqnaVwsJCIc/view?usp=sharing",
+  resume:
+    "https://drive.google.com/file/d/1lcsy64CxMxMLtbo4AtM7VAqnaVwsJCIc/view?usp=sharing",
 };
 
 export const frontend = [
@@ -62,4 +65,46 @@ export const backend = [
     name: "python",
     icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original-wordmark.svg",
   },
+];
+
+export const projects = [
+  {
+    codeLink
+    : 
+    "https://github.com/jkim1998/Movie-DB-",
+    description
+    : 
+    "API",
+    projectLink
+    : 
+    "https://movie-db-sand.vercel.app/",
+    tags
+    : 
+    ['Front End'],
+    tech
+    : 
+    (3) ['React', 'CSS', 'TMDB API'],
+    title
+    : 
+    "Movie++",
+    _createdAt
+    : 
+    "2022-12-16T21:45:39Z",
+    _id
+    : 
+    "7d7d536a-ea24-4d20-83c5-11870373211f",
+    _rev
+    : 
+    "nk5KEhXxm13zdDvqRyvG2u",
+    _type
+    : 
+    "works",
+    _updatedAt
+    : 
+    "2023-01-16T02:28:10Z",
+  },
+  {
+    // another project object
+  },
+  // more project objects
 ];
