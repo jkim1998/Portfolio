@@ -6,7 +6,7 @@ import {
   Typography,
   Avatar,
   styled,
-  Switch
+  Switch,
 } from "@mui/material";
 import { pageStyle } from "../../assets/style";
 import { profile } from "../../assets/data";
@@ -15,6 +15,7 @@ import { GrStackOverflow } from "react-icons/gr";
 import { FaGlobe } from "react-icons/fa";
 import { GiPencilBrush } from "react-icons/gi";
 import { frontend, backend, others } from "../../assets/data";
+import { AppWrap, MotionWrap } from "../../wrapper";
 
 const stackStyle = {
   display: "flex",
@@ -142,6 +143,7 @@ const ProfileCard = () => {
         justifyContent: "center",
         gap: "2rem",
         width: "80%",
+        maxWidth: "1200px",
       }}
     >
       <Box
@@ -297,7 +299,6 @@ const Language = () => {
         flexDirection: "row",
         justifyContent: "center",
         alignItems: "center",
-        // bgcolor: "skyblue",
         width: "100%",
         paddingY: "2rem",
         marginBottom: "2rem",
@@ -389,4 +390,4 @@ const SkillsCard = ({ title, item }) => {
   );
 };
 
-export default About;
+export default AppWrap(MotionWrap(About, "app__footer"), "about");

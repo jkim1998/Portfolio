@@ -1,12 +1,19 @@
 import React, { useState, useRef, useEffect } from "react";
+import {
+  Box,
+  Stack,
+  Button,
+  Typography,
+  Avatar,
+  styled,
+  Switch
+} from "@mui/material";
 import emailjs from "@emailjs/browser";
 import { AiFillGithub, AiFillLinkedin, AiOutlineBold } from "react-icons/ai";
 import { BsFillPersonFill, BsTelephoneFill } from "react-icons/bs";
 import { GrMail } from "react-icons/gr";
 
-import Navbar from "../../components/Navbar/Navbar";
 import { AppWrap, MotionWrap } from "../../wrapper";
-import { motion } from "framer-motion";
 import { urlFor, client } from "../../client";
 
 import "./Contact.css";
@@ -157,5 +164,4 @@ const invalidEmail = () => {
 export default AppWrap(
   MotionWrap(Contact, "app__footer"),
   "contact",
-  "app__whitebg"
 );

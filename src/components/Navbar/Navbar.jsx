@@ -54,7 +54,7 @@ const Navbar = () => {
           width: "50%",
         }}
       >
-        {["home", "about", "skills", "work", "contact"].map((item) => (
+        {["home", "about", "work", "contact"].map((item) => (
           <List key={`link-${item}`}>
             <Link
               href={`#${item}`}

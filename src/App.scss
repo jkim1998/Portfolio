@@ -20,11 +20,21 @@ body {
   background-color: var(--primary-color);
 }
 
+.qq {
+  position: absolute;
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  margin: auto;
+}
+
+
 .app__container {
   width: 100%;
   min-height: 100vh;
   display: flex;
   flex-direction: row;
+  position: relative;
 }
 
 .app__flex {
