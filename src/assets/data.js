@@ -27,6 +27,10 @@ export const frontend = [
     icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg",
   },
   {
+    name: "Typescript",
+    icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/typescript/typescript-original.svg",
+  },
+  {
     name: "React.js",
     icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg",
   },
@@ -67,41 +71,38 @@ export const backend = [
   },
 ];
 
+export const others = [
+  {
+    name: "MongoDB",
+    icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mongodb/mongodb-original.svg",
+  },
+  {
+    name: "MySQL",
+    icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original-wordmark.svg",
+  },
+  {
+    name: "git",
+    icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original-wordmark.svg",
+  },
+  {
+    name: "vscode",
+    icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/vscode/vscode-original.svg",
+  },
+];
+
 export const projects = [
   {
-    codeLink
-    : 
-    "https://github.com/jkim1998/Movie-DB-",
-    description
-    : 
-    "API",
-    projectLink
-    : 
-    "https://movie-db-sand.vercel.app/",
-    tags
-    : 
-    ['Front End'],
-    tech
-    : 
-    (3) ['React', 'CSS', 'TMDB API'],
-    title
-    : 
-    "Movie++",
-    _createdAt
-    : 
-    "2022-12-16T21:45:39Z",
-    _id
-    : 
-    "7d7d536a-ea24-4d20-83c5-11870373211f",
-    _rev
-    : 
-    "nk5KEhXxm13zdDvqRyvG2u",
-    _type
-    : 
-    "works",
-    _updatedAt
-    : 
-    "2023-01-16T02:28:10Z",
+    codeLink: "https://github.com/jkim1998/Movie-DB-",
+    description: "API",
+    projectLink: "https://movie-db-sand.vercel.app/",
+    tags: ["Front End"],
+    tech: (3)[("React", "CSS", "TMDB API")],
+    title: "Movie++",
+    _createdAt: "2022-12-16T21:45:39Z",
+    _id: "7d7d536a-ea24-4d20-83c5-11870373211f",
+    _rev: "nk5KEhXxm13zdDvqRyvG2u",
+    _type: "works",
+    _updatedAt: "2023-01-16T02:28:10Z",
   },
   {
     // another project object

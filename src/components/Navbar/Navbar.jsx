@@ -22,10 +22,9 @@ const Navbar = () => {
         justifyContent: "space-between",
         alignItems: "center",
         paddingY: "0.5rem",
-        borderBottom: "1px solid black",
         position: "fixed",
         width: "99%",
-        bgcolor: "black",
+        bgcolor: "#0F161C",
         zIndex: "100",
       }}
     >

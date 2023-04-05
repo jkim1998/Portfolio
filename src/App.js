@@ -15,7 +15,7 @@ const content = [
   <Contact />,
 ];
 
-const bgColors = ["white", "black"];
+const bgColors = ["#1A232C", "#0F161C"];
 
 const App = () => (
   <div className="app">

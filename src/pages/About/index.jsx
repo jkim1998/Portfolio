@@ -1,12 +1,20 @@
 import React from "react";
-import { Box, Stack, Button, Typography, Link, Avatar } from "@mui/material";
+import {
+  Box,
+  Stack,
+  Button,
+  Typography,
+  Link,
+  Avatar,
+  styled,
+} from "@mui/material";
 import { pageStyle } from "../../assets/style";
 import { profile } from "../../assets/data";
 import { Profile_pic } from "../../assets";
 import { GrStackOverflow } from "react-icons/gr";
 import { FaGlobe } from "react-icons/fa";
 import { GiPencilBrush } from "react-icons/gi";
-import { frontend, backend } from "../../assets/data";
+import { frontend, backend, others } from "../../assets/data";
 
 const stackStyle = {
   display: "flex",
@@ -16,40 +24,72 @@ const stackStyle = {
   alignItems: "flex-start",
   gap: "2rem",
   padding: "2rem",
-  bgcolor: "yellow",
 };
+
+const WhiteTextTypography = styled(Typography)({
+  color: "white",
+});
 
 const About = () => {
   return (
     <Stack
       sx={{
         ...pageStyle,
-        gap: "5rem",
+        justifyContent: "space-between",
       }}
     >
-      <ProfileCard />
-      <Language />
       <Stack
         sx={{
+          width: "100%",
           display: "flex",
-          flexDirection: "row",
           justifyContent: "center",
           alignItems: "center",
-          position: "relative",
-          gap: "2rem",
-          bgcolor: "skyblue",
-          width: "100%",
+          marginTop: "8rem",
         }}
       >
-        <Cards service="Full Stack Development" icon={<GrStackOverflow />} />
-        <Cards service="UI/UX" icon={<GiPencilBrush />} />
-        <Cards service="Web Design" icon={<FaGlobe />} />
+        <ProfileCard />
       </Stack>
+      {/* <Services /> */}
+      <Language />
     </Stack>
   );
 };
 
-const Cards = ({ icon, service }) => {
+const Services = () => {
+  return (
+    <Stack
+      sx={{
+        display: "flex",
+        flexDirection: "row",
+        justifyContent: "center",
+        alignItems: "center",
+        gap: "1rem",
+        // bgcolor: "#0F161C",
+        width: "90%",
+        borderRadius: "50px",
+      }}
+    >
+      <ServiceCard
+        service="Full Stack Development"
+        icon={<GrStackOverflow fill="white" size="5rem" />}
+      />
+      <ServiceCard
+        service="UI/UX"
+        icon={<GiPencilBrush fill="white" size="5rem" />}
+      />
+      <ServiceCard
+        service="Web Design"
+        icon={<FaGlobe fill="white" size="5rem" />}
+      />
+      <ServiceCard
+        service="Web Design"
+        icon={<FaGlobe fill="white" size="5rem" />}
+      />
+    </Stack>
+  );
+};
+
+const ServiceCard = ({ icon, service }) => {
   return (
     <Stack
       sx={{
@@ -57,14 +97,28 @@ const Cards = ({ icon, service }) => {
         flexDirection: "column",
         justifyContent: "center",
         alignItems: "center",
-        bgcolor: "white",
-        width: "400px",
+        position: "relative",
+        bgcolor: "#0F161C",
+        width: "350px",
         height: "200px",
         marginY: "2rem",
+        borderRadius: "1.5rem",
       }}
     >
-      {icon}
-      <Typography variant="h6">{service}</Typography>
+      <Stack
+        sx={{
+          position: "absolute",
+          top: "-2.5rem",
+          bgcolor: "skyblue",
+          padding: "1rem",
+          borderRadius: "50%",
+        }}
+      >
+        {icon}
+      </Stack>
+      <WhiteTextTypography variant="h6" sx={{ color: "white" }}>
+        {service}
+      </WhiteTextTypography>
     </Stack>
   );
 };
@@ -79,7 +133,6 @@ const ProfileCard = () => {
         justifyContent: "center",
         gap: "2rem",
         width: "80%",
-        bgcolor: "green",
       }}
     >
       <Box
@@ -89,8 +142,8 @@ const ProfileCard = () => {
           justifyContent: "center",
           alignItems: "center",
           position: "relative",
-          padding: "0.5rem",
-          height: "100%",
+          padding: "0.3rem",
+          height: "60%",
         }}
       >
         <Box
@@ -98,7 +151,7 @@ const ProfileCard = () => {
             position: "absolute",
             left: 0,
             top: 0,
-            bgcolor: "blue",
+            bgcolor: "skyblue",
             padding: "50px",
           }}
         />
@@ -107,7 +160,7 @@ const ProfileCard = () => {
             position: "absolute",
             right: 0,
             bottom: 0,
-            bgcolor: "red",
+            bgcolor: "skyblue",
             padding: "50px",
           }}
         />
@@ -124,30 +177,41 @@ const ProfileCard = () => {
         sx={{
           display: "flex",
           flexDirection: "column",
-          bgcolor: "purple",
+          bgcolor: "#0F161C",
+          padding: "2rem",
         }}
       >
-        <Typography>Personal Info</Typography>
-        <Typography variant="h4">About Me</Typography>
-        <Stack
-          sx={{
-            display: "flex",
-            flexDirection: "row",
-          }}
-        >
-          <Stack sx={{ ...stackStyle }}>
-            <Typography>Name: </Typography>
-            <Typography>Title: </Typography>
-            <Typography>Email: </Typography>
-            <Typography>Phone: </Typography>
-          </Stack>
+        <Stack sx={{ paddingLeft: "2rem", color: "white" }}>
+          <WhiteTextTypography>Personal Info</WhiteTextTypography>
+          <WhiteTextTypography variant="h4">
+            const About_Me = [
+          </WhiteTextTypography>
+          <Stack sx={{ paddingLeft: "2rem" }}>
+            <WhiteTextTypography variant="h4">{"{"}</WhiteTextTypography>
+            <Stack
+              sx={{
+                display: "flex",
+                flexDirection: "row",
+                paddingLeft: "2rem",
+              }}
+            >
+              <Stack sx={{ ...stackStyle }}>
+                <WhiteTextTypography>name: </WhiteTextTypography>
+                <WhiteTextTypography>title: </WhiteTextTypography>
+                <WhiteTextTypography>email: </WhiteTextTypography>
+                <WhiteTextTypography>phone: </WhiteTextTypography>
+              </Stack>
 
-          <Stack sx={{ ...stackStyle }}>
-            <Typography>{profile.name} </Typography>
-            <Typography>{profile.title} </Typography>
-            <Typography>{profile.email} </Typography>
-            <Typography>{profile.phone} </Typography>
+              <Stack sx={{ ...stackStyle }}>
+                <WhiteTextTypography>"{profile.name}" </WhiteTextTypography>
+                <WhiteTextTypography>"{profile.title}"</WhiteTextTypography>
+                <WhiteTextTypography>"{profile.email}" </WhiteTextTypography>
+                <WhiteTextTypography>"{profile.phone}" </WhiteTextTypography>
+              </Stack>
+            </Stack>
+            <WhiteTextTypography variant="h4">{"},"}</WhiteTextTypography>
           </Stack>
+          <WhiteTextTypography variant="h4">{"];"}</WhiteTextTypography>
         </Stack>
       </Stack>
     </Box>
@@ -162,9 +226,10 @@ const Language = () => {
         flexDirection: "row",
         justifyContent: "center",
         alignItems: "center",
-        borderRadius: "10rem",
-        bgcolor: "red",
-        width: "90%",
+        // bgcolor: "skyblue",
+        width: "100%",
+        paddingY: "2rem",
+        marginBottom: "2rem",
       }}
     >
       <Stack
@@ -173,7 +238,6 @@ const Language = () => {
           flexDireciton: "column",
           justifyContent: "center",
           alignItems: "center",
-          padding: "2rem",
         }}
       ></Stack>
       <Box
@@ -185,6 +249,7 @@ const Language = () => {
       >
         <SkillsCard item={frontend} title="Front End" />
         <SkillsCard item={backend} title="Back End" />
+        <SkillsCard item={others} title="Others" />
       </Box>
     </Stack>
   );
@@ -196,14 +261,17 @@ const SkillsCard = ({ title, item }) => {
       <Box sx={{ display: "flex", flexDirection: "row" }}>
         <Stack
           sx={{
-            bgcolor: "rgb(250, 250, 250)",
+            bgcolor: "#0F161C",
             display: "flex",
             flexDirection: "column",
-            justifyContent: "center",
             alignItems: "center",
+            padding: "1rem",
+            borderRadius: "1.5rem",
           }}
         >
-          <Typography>{title}</Typography>
+          <WhiteTextTypography sx={{ color: "white" }}>
+            {title}
+          </WhiteTextTypography>
           <Stack
             sx={{
               display: "grid",
@@ -238,7 +306,9 @@ const SkillsCard = ({ title, item }) => {
                 >
                   <Avatar variant="square" src={skill.icon} alt={skill.name} />
                 </Stack>
-                <Typography>{skill.name}</Typography>
+                <WhiteTextTypography sx={{ color: "white" }}>
+                  {skill.name}
+                </WhiteTextTypography>
               </Stack>
             ))}
           </Stack>

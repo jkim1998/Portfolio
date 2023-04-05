@@ -9,13 +9,26 @@ import { pageStyle } from "../../assets/style";
 import { projects } from "../../assets/data";
 
 const Work = () => {
-  const [works, setWorks] = useState([projects]);
+  const [works, setWorks] = useState([]);
   const [filterWork, setFilterWork] = useState([]);
   const [activeFilter, setActiveFilter] = useState("All");
   const [animateCard, setAnimateCard] = useState({ y: 0, opacity: 1 });
   const [info, setInfo] = useState([]);
 
+  useEffect(() => {
+    const query_work = '*[_type == "works"]';
+    const query = '*[_type == "personalinfo"]';
 
+    client.fetch(query_work).then((data) => {
+      setWorks(data);
+      setFilterWork(data);
+    });
+
+    client.fetch(query).then((data) => {
+      setInfo(data);
+    });
+    console.log(works)
+  }, []);
 
   const handleWorkFilter = (item) => {
     setActiveFilter(item);
@@ -34,7 +47,7 @@ const Work = () => {
 
   return (
     <>
-      <h2 className="head-text">
+      <h2 className="head-text qq">
         My Creative <span>Projects</span>{" "}
       </h2>
 
