@@ -1,12 +1,12 @@
-import React from "react";
+import React, { useState } from "react";
 import {
   Box,
   Stack,
   Button,
   Typography,
-  Link,
   Avatar,
   styled,
+  Switch
 } from "@mui/material";
 import { pageStyle } from "../../assets/style";
 import { profile } from "../../assets/data";
@@ -124,6 +124,15 @@ const ServiceCard = ({ icon, service }) => {
 };
 
 const ProfileCard = () => {
+  const [profilemode, setProfilemode] = useState("frontend");
+
+  const toggleProfile = () => {
+    if (profilemode === "frontend") {
+      setProfilemode("backend");
+    } else {
+      setProfilemode("frontend");
+    }
+  };
   return (
     <Box
       sx={{
@@ -173,48 +182,110 @@ const ProfileCard = () => {
           }}
         />
       </Box>
-      <Stack
-        sx={{
-          display: "flex",
-          flexDirection: "column",
-          bgcolor: "#0F161C",
-          padding: "2rem",
-        }}
-      >
-        <Stack sx={{ paddingLeft: "2rem", color: "white" }}>
-          <WhiteTextTypography>Personal Info</WhiteTextTypography>
-          <WhiteTextTypography variant="h4">
-            const About_Me = [
-          </WhiteTextTypography>
-          <Stack sx={{ paddingLeft: "2rem" }}>
-            <WhiteTextTypography variant="h4">{"{"}</WhiteTextTypography>
-            <Stack
-              sx={{
-                display: "flex",
-                flexDirection: "row",
-                paddingLeft: "2rem",
-              }}
-            >
-              <Stack sx={{ ...stackStyle }}>
-                <WhiteTextTypography>name: </WhiteTextTypography>
-                <WhiteTextTypography>title: </WhiteTextTypography>
-                <WhiteTextTypography>email: </WhiteTextTypography>
-                <WhiteTextTypography>phone: </WhiteTextTypography>
-              </Stack>
-
-              <Stack sx={{ ...stackStyle }}>
-                <WhiteTextTypography>"{profile.name}" </WhiteTextTypography>
-                <WhiteTextTypography>"{profile.title}"</WhiteTextTypography>
-                <WhiteTextTypography>"{profile.email}" </WhiteTextTypography>
-                <WhiteTextTypography>"{profile.phone}" </WhiteTextTypography>
-              </Stack>
-            </Stack>
-            <WhiteTextTypography variant="h4">{"},"}</WhiteTextTypography>
-          </Stack>
-          <WhiteTextTypography variant="h4">{"];"}</WhiteTextTypography>
-        </Stack>
-      </Stack>
+      <Box>
+        <Switch
+          checked={profilemode === "backend"}
+          onChange={() => toggleProfile()}
+        />{" "}
+        {/* use the Switch component */}
+        {profilemode === "frontend" ? (
+          <Profile_frontend />
+        ) : (
+          <Profile_backend />
+        )}
+      </Box>
     </Box>
+  );
+};
+
+const Profile_frontend = () => {
+  return (
+    <Stack
+      sx={{
+        display: "flex",
+        flexDirection: "column",
+        bgcolor: "#0F161C",
+        padding: "2rem",
+      }}
+    >
+      <Stack sx={{ paddingLeft: "2rem", color: "white" }}>
+        <WhiteTextTypography>Personal Info</WhiteTextTypography>
+        <WhiteTextTypography variant="h4">About Me</WhiteTextTypography>
+        <Stack sx={{ paddingLeft: "2rem" }}>
+          <WhiteTextTypography variant="h4">&nbsp;</WhiteTextTypography>
+
+          <Stack
+            sx={{
+              display: "flex",
+              flexDirection: "row",
+              paddingRight: "2rem",
+            }}
+          >
+            <Stack sx={{ ...stackStyle }}>
+              <WhiteTextTypography>name: </WhiteTextTypography>
+              <WhiteTextTypography>title: </WhiteTextTypography>
+              <WhiteTextTypography>email: </WhiteTextTypography>
+              <WhiteTextTypography>phone: </WhiteTextTypography>
+            </Stack>
+
+            <Stack sx={{ ...stackStyle }}>
+              <WhiteTextTypography>"{profile.name}" </WhiteTextTypography>
+              <WhiteTextTypography>"{profile.title}"</WhiteTextTypography>
+              <WhiteTextTypography>"{profile.email}" </WhiteTextTypography>
+              <WhiteTextTypography>"{profile.phone}" </WhiteTextTypography>
+            </Stack>
+          </Stack>
+          <WhiteTextTypography variant="h4">&nbsp;</WhiteTextTypography>
+        </Stack>
+        <WhiteTextTypography variant="h4">&nbsp;</WhiteTextTypography>
+      </Stack>
+    </Stack>
+  );
+};
+
+const Profile_backend = () => {
+  return (
+    <Stack
+      sx={{
+        display: "flex",
+        flexDirection: "column",
+        bgcolor: "#0F161C",
+        padding: "2rem",
+      }}
+    >
+      <Stack sx={{ paddingLeft: "2rem", color: "white" }}>
+        <WhiteTextTypography>Personal Info</WhiteTextTypography>
+        <WhiteTextTypography variant="h4">
+          const About_Me = [
+        </WhiteTextTypography>
+        <Stack sx={{ paddingLeft: "2rem" }}>
+          <WhiteTextTypography variant="h4">{"{"}</WhiteTextTypography>
+          <Stack
+            sx={{
+              display: "flex",
+              flexDirection: "row",
+              paddingLeft: "2rem",
+            }}
+          >
+            <Stack sx={{ ...stackStyle }}>
+              <WhiteTextTypography>name: </WhiteTextTypography>
+              <WhiteTextTypography>title: </WhiteTextTypography>
+              <WhiteTextTypography>email: </WhiteTextTypography>
+              <WhiteTextTypography>phone: </WhiteTextTypography>
+            </Stack>
+
+            <Stack sx={{ ...stackStyle }}>
+              <WhiteTextTypography>"{profile.name}" </WhiteTextTypography>
+              <WhiteTextTypography>"{profile.title}"</WhiteTextTypography>
+              <WhiteTextTypography>"{profile.email}" </WhiteTextTypography>
+              <WhiteTextTypography>"{profile.phone}" </WhiteTextTypography>
+            </Stack>
+          </Stack>
+          <WhiteTextTypography variant="h4">{"},"}</WhiteTextTypography>
+        </Stack>
+        <WhiteTextTypography variant="h4">{"];"}</WhiteTextTypography>
+      </Stack>
+    </Stack>
   );
 };
 
