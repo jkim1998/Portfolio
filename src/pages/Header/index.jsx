@@ -6,6 +6,7 @@ import { pageStyle } from "../../assets/style";
 import { BsGithub } from "react-icons/bs";
 import { FaLinkedinIn } from "react-icons/fa";
 import { keyframes } from "@emotion/react";
+import { AppWrap, MotionWrap } from "../../wrapper";
 
 const jump = keyframes`
   0% {
@@ -172,4 +173,4 @@ const Header = () => {
     </Stack>
   );
 };
-export default Header;
+export default AppWrap(MotionWrap(Header, "app__works"), "");

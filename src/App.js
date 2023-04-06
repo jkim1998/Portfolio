@@ -5,6 +5,7 @@ import Work from "./pages/Work";
 import Contact from "./pages/Contact";
 import { Navbar } from "./components";
 import "./App.scss";
+import { ThemeColors as qq } from "./assets/theme";
 
 const content = [
   <Navbar />,
@@ -15,7 +16,7 @@ const content = [
   <Contact />,
 ];
 
-const bgColors = ["#1A232C", "#0F161C"];
+const bgColors = [qq.sub, qq.main];
 
 const App = () => (
   <div className="app">

@@ -6,7 +6,9 @@ import {
   Typography,
   Avatar,
   styled,
-  Switch
+  Switch,
+  Link,
+  TextField,
 } from "@mui/material";
 import emailjs from "@emailjs/browser";
 import { AiFillGithub, AiFillLinkedin, AiOutlineBold } from "react-icons/ai";
@@ -15,24 +17,84 @@ import { GrMail } from "react-icons/gr";
 
 import { AppWrap, MotionWrap } from "../../wrapper";
 import { urlFor, client } from "../../client";
+import { profile } from "../../assets/data";
+import { pageStyle } from "../../assets/style";
+import { ThemeColors as qq } from "../../assets/theme";
 
 import "./Contact.css";
 
+const WhiteTextTypography = styled(Typography)({
+  color: qq.font,
+});
+
+const ValidationTextField = styled(TextField)({
+  "& .MuiFormLabel-root": {
+    color: qq.accent,
+  },
+  "& .MuiInputBase-input": {
+    color: qq.font,
+  },
+  "& .MuiInputBase-focused": {
+    color: "red",
+  },
+  "& .MuiInputBase-root": {
+    color: qq.font,
+  },
+  "& label.Mui-focused": {
+    color: qq.accent,
+  },
+  "& .MuiOutlinedInput-root": {
+    "&:hover fieldset": {
+      borderColor: qq.accent,
+    },
+  },
+});
+
 const Contact = () => {
-  const [contact, setContact] = useState([]);
+  return (
+    <Stack sx={{ ...pageStyle, position: "relative" }}>
+      <Box
+        sx={{
+          display: "flex",
+          flexDirection: "column",
+          justifyContent: "center",
+          alignItems: "center",
+        }}
+      >
+        <Box
+          sx={{
+            display: "flex",
+            flexDirection: "column",
+            justifyContent: "center",
+            alignItems: "center",
+            padding: "2rem",
+          }}
+        >
+          <WhiteTextTypography variant="h3">Contact Me</WhiteTextTypography>
+        </Box>
+        <Box
+          sx={{
+            display: "flex",
+            flexDirection: "row",
+            justifyContent: "center",
+            alignItems: "center",
+            borderTop: `1px solid ${qq.accent}`,
+            width: "100rem",
+            maxWidth: "80vw",
+            paddingTop: "3rem",
+          }}
+        >
+          <EmailForm />
+          <ContactInfo />
+        </Box>
+      </Box>
+    </Stack>
+  );
+};
+
+const EmailForm = () => {
   const form = useRef();
   const [status, setStatus] = useState("");
-  const [error_email, setErrorEmail] = useState("");
-  const [thispage, setThispage] = useState(false);
-  const [info, setInfo] = useState([]);
-
-  useEffect(() => {
-    const query = '*[_type == "personalinfo"]';
-
-    client.fetch(query).then((data) => {
-      setInfo(data);
-    });
-  }, []);
 
   const sendEmail = (e) => {
     //prevent re-render
@@ -72,96 +134,174 @@ const Contact = () => {
     }
   }, [status]);
 
-  const isThisPage = () => {
-    setThispage(true);
-    setTimeout(() => {
-      setThispage(false);
-    }, 1000);
+  return (
+    <Box
+      sx={{
+        display: "flex",
+        flexDirection: "column",
+        width: "40%",
+      }}
+    >
+      {status === "SUCCESS" && renderAlert_success()}
+      {status === "FAILED" && renderAlert_fail()}
+      <Stack
+        sx={{
+          display: "flex",
+          flexDirection: "column",
+          justifyContent: "space-between",
+          padding: "20px 50px 50px 50px",
+        }}
+      >
+        <form ref={form} onSubmit={sendEmail} id="form">
+          <Stack sx={{ display: "flex", flexDirection: "column", gap: "2rem" }}>
+            <ValidationTextField
+              name="from_name"
+              label="Your Name"
+              variant="outlined"
+              required
+              sx={{
+                bgcolor: qq.main,
+              }}
+            />
+            <ValidationTextField
+              name="user_email"
+              label="Email"
+              variant="outlined"
+              required
+              onInvalid={invalidEmail}
+              sx={{ bgcolor: qq.main, color: qq.font }}
+            />
+            <ValidationTextField
+              name="message"
+              label="Message"
+              variant="outlined"
+              multiline
+              rows={4}
+              sx={{ bgcolor: qq.main, input: { color: qq.font } }}
+            />
+            <Button
+              variant="contained"
+              sx={{ bgcolor: qq.accent, paddingY: "1rem" }}
+              type="submit"
+            >
+              send
+            </Button>
+          </Stack>
+        </form>
+      </Stack>
+    </Box>
+  );
+};
+
+const ContactInfo = () => {
+  const Label = {
+    display: "flex",
+    flexDirection: "row",
+    alignItems: "center",
+    gap: "3rem",
+    marginY: "1rem",
+    marginLeft: "4rem",
   };
 
   return (
-    <>
-      <div className="content_contact">
-        <div className="banner">
-          <h1>Contact</h1>
-        </div>
-        <div className="main_page">
-          <div className="confirmation">
-            {status === "SUCCESS" && renderAlert_success()}
-            {status === "FAILED" && renderAlert_fail()}
-            <form ref={form} onSubmit={sendEmail} id="form">
-              <input
-                type="text"
-                name="from_name"
-                placeholder="Your Name"
-                required="required"
-              />
-              <input
-                type="email"
-                name="user_email"
-                placeholder="Email"
-                required="required"
-                onInvalid={invalidEmail()}
-              />
-              <textarea name="message" placeholder="Message"></textarea>
-              <input type="submit" value="Send" />
-            </form>
-          </div>
+    <Box
+      sx={{
+        height: "95%",
+        display: "flex",
+        flexDirection: "column",
+        // paddingTop: "2rem",
+        gap: "2rem",
+        width: "40%",
+      }}
+    >
+      <Box
+        sx={{
+          display: "flex",
+          flexDirection: "column",
+          justifyContent: "center",
+          gap: "2rem",
+          paddingY: "1rem",
+          bgcolor: qq.main,
+        }}
+      >
+        <Box sx={{ ...Label }}>
+          <BsFillPersonFill size="2rem" fill={qq.accent} />
+          <WhiteTextTypography>{profile.name}</WhiteTextTypography>
+        </Box>
 
-          {info.map((data) => (
-            <div className="contactinfo">
-              <div className="personalInfo">
-                <div className="contactinfo_container">
-                  <BsFillPersonFill />
-                  <p>{data.name}</p>
-                </div>
-                <div className="contactinfo_container">
-                  <BsTelephoneFill /> <p>(737) 484 - 2504</p>
-                </div>
-                <div className="contactinfo_container">
-                  <GrMail />
-                  <p>{data.email}</p>
-                </div>
-              </div>
-              <div className="links">
-                <a href={data.github} target="_blank" rel="noreferrer">
-                  <AiFillGithub size={40} id="github" />
-                </a>
-                <a href={data.linkedin} target="_blank" rel="noreferrer">
-                  <AiFillLinkedin size={40} id="linkedin" />
-                </a>
-                {!thispage ? (
-                  <a onClick={isThisPage}>
-                    <AiOutlineBold size={40} id="" />
-                  </a>
-                ) : (
-                  <p>It is this page!</p>
-                )}
-              </div>
-            </div>
-          ))}
-        </div>
-      </div>
-    </>
+        <Box sx={{ ...Label }}>
+          <BsTelephoneFill size="2rem" fill={qq.accent} />
+          <WhiteTextTypography>{profile.phone}</WhiteTextTypography>
+        </Box>
+
+        <Box sx={{ ...Label }}>
+          <GrMail size="2rem" fill={qq.accent} />
+          <WhiteTextTypography>{profile.email}</WhiteTextTypography>
+        </Box>
+      </Box>
+      <Box
+        sx={{
+          display: "flex",
+          flexDirection: "column",
+          justifyContent: "center",
+          alignItems: "center",
+          bgcolor: qq.main,
+          paddingTop: "2rem",
+        }}
+      >
+        <Box
+          sx={{
+            display: "flex",
+            flexDirection: "row",
+            alignItems: "center",
+            justifyContent: "center",
+            gap: "50px",
+            borderTop: `2px solid ${qq.accent}`,
+            padding: "30px",
+          }}
+        >
+          <Link href={profile.github} target="_blank" rel="noreferrer" sx={{ transition: "transform 0.2s", "&:hover": { transform: "scale(1.4)" } }}>
+            <AiFillGithub size={40} id="github" fill="black" />
+          </Link>
+          <Link href={profile.linkedin} target="_blank" rel="noreferrer" sx={{ transition: "transform 0.2s", "&:hover": { transform: "scale(1.4)" } }}>
+            <AiFillLinkedin size={40} id="linkedin" fill="#0072b1" />
+          </Link>
+        </Box>
+      </Box>
+    </Box>
   );
 };
+
 const renderAlert_success = () => (
-  <div className="confirmation">
-    <p>Your message has been sent</p>
-  </div>
+  <Box
+    sx={{
+      display: "flex",
+      flexDirection: "column",
+      verticalAlign: "middle",
+      paddingTop: "30px",
+    }}
+  >
+    <WhiteTextTypography>Your message has been sent</WhiteTextTypography>
+  </Box>
 );
+
 const renderAlert_fail = () => (
-  <div className="confirmation">
-    <p>Error. Please try again later</p>
-  </div>
+  <Box
+    sx={{
+      display: "flex",
+      flexDirection: "column",
+      verticalAlign: "middle",
+      paddingTop: "30px",
+    }}
+  >
+    <WhiteTextTypography>Error. Please try again later</WhiteTextTypography>
+  </Box>
 );
 
 const invalidEmail = () => {
-  <div>
-    <p>this is required</p>
-  </div>;
+  <Box>
+    <WhiteTextTypography>this is required</WhiteTextTypography>
+  </Box>;
 };
-export default AppWrap(
-  MotionWrap(Contact, "app__footer"),
-  "contact",
-);
+
+export default AppWrap(MotionWrap(Contact, "app__footer"), "contact");
