@@ -177,6 +177,7 @@ const ProfileCard = () => {
         />
         <Avatar
           src={Profile_pic}
+          alt="profile pic"
           variant="square"
           sx={{
             height: "100%",
@@ -354,7 +355,7 @@ const SkillsCard = ({ title, item }) => {
           >
             {item.map((skill) => (
               <Stack
-                whileInView={{ opacity: [0, 1] }}
+                // whileInView={{ opacity: [0, 1] }}
                 transition={{ duration: 0.5 }}
                 sx={{
                   flexDirection: "column",
@@ -376,7 +377,7 @@ const SkillsCard = ({ title, item }) => {
                     height: "90px",
                   }}
                 >
-                  <Avatar variant="square" src={skill.icon} alt={skill.name} />
+                  <Avatar variant="square" src={skill.icon} alt="skill name" />
                 </Stack>
                 <WhiteTextTypography sx={{ color: "white" }}>
                   {skill.name}

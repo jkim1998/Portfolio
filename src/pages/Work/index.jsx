@@ -1,12 +1,11 @@
 import React, { useState, useEffect } from "react";
 import { AiFillEye, AiFillGithub } from "react-icons/ai";
 import { motion } from "framer-motion";
-
+import { Box, Stack, Typography, Avatar, Image, Link } from "@mui/material";
 import { AppWrap, MotionWrap } from "../../wrapper";
-import { urlFor, client } from "../../client";
 import "./Work.scss";
 import { pageStyle } from "../../assets/style";
-import { projects } from "../../assets/data";
+import { profile, projects } from "../../assets/data";
 
 const Work = () => {
   const [works, setWorks] = useState([]);
@@ -16,19 +15,24 @@ const Work = () => {
   const [info, setInfo] = useState([]);
 
   useEffect(() => {
-    const query_work = '*[_type == "works"]';
-    const query = '*[_type == "personalinfo"]';
-
-    client.fetch(query_work).then((data) => {
-      setWorks(data);
-      setFilterWork(data);
-    });
-
-    client.fetch(query).then((data) => {
-      setInfo(data);
-    });
-    console.log(works)
+    setWorks(projects);
+    setFilterWork(projects);
   }, []);
+
+  // useEffect(() => {
+  //   const query_work = '*[_type == "works"]';
+  //   const query = '*[_type == "personalinfo"]';
+
+  //   client.fetch(query_work).then((data) => {
+  //     setWorks(data);
+  //     setFilterWork(data);
+  //   });
+
+  //   client.fetch(query).then((data) => {
+  //     setInfo(data);
+  //   });
+  //   console.log(works)
+  // }, []);
 
   const handleWorkFilter = (item) => {
     setActiveFilter(item);
@@ -44,17 +48,18 @@ const Work = () => {
       }
     }, 500);
   };
+  console.log(works);
 
   return (
     <>
-      <h2 className="head-text">
+      <Typography variant="h4" className="head-text">
         My Creative <span>Projects</span>{" "}
-      </h2>
+      </Typography>
 
-      <div className="app__work-filter">
+      <Box className="app__work-filter">
         {["Front End", "Back End", "Full Stack", "UI/UX", "All"].map(
           (item, index) => (
-            <div
+            <Box
               key={index}
               onClick={() => handleWorkFilter(item)}
               className={`app__work-filter-item app__flex p-text ${
@@ -62,22 +67,22 @@ const Work = () => {
               }`}
             >
               {item}
-            </div>
+            </Box>
           )
         )}
-      </div>
+      </Box>
 
-      <motion.div
+      <motion.Box
         animate={animateCard}
         transition={{ duration: 0.5, delayChildren: 0.5 }}
         className="app__work-portfolio"
       >
         {filterWork.map((work, index) => (
-          <div className="app__work-item app__flex" key={index}>
-            <div className="app__work-img app__flex">
-              <img src={urlFor(work.imgUrl)} alt={work.name} />
+          <Box className="app__work-item app__flex" key={index}>
+            <Box className="app__work-img app__flex">
+              <img src={work.imgUrl} alt={work.name} />
 
-              <motion.div
+              <motion.Box
                 whileHover={{ opacity: [0, 1] }}
                 transition={{
                   duration: 0.25,
@@ -86,57 +91,51 @@ const Work = () => {
                 }}
                 className="app__work-hover app__flex"
               >
-                <a href={work.projectLink} target="_blank" rel="noreferrer">
-                  <motion.div
+                <Link href={work.projectLink} target="_blank" rel="noreferrer">
+                  <motion.Box
                     whileInView={{ scale: [0, 1] }}
                     whileHover={{ scale: [1, 0.9], backgroundColor: "white" }}
                     transition={{ duration: 0.25 }}
                     className="app__flex"
                   >
                     <AiFillEye />
-                  </motion.div>
-                </a>
-                <a href={work.codeLink} target="_blank" rel="noreferrer">
-                  <motion.div
+                  </motion.Box>
+                </Link>
+                <Link href={work.codeLink} target="_blank" rel="noreferrer">
+                  <motion.Box
                     whileInView={{ scale: [0, 1] }}
                     whileHover={{ scale: [1, 0.9], backgroundColor: "white" }}
                     transition={{ duration: 0.25 }}
                     className="app__flex"
                   >
                     <AiFillGithub />
-                  </motion.div>
-                </a>
-              </motion.div>
-            </div>
+                  </motion.Box>
+                </Link>
+              </motion.Box>
+            </Box>
 
-            <div className="app__work-content app__flex">
-              <h4 className="bold-text">{work.title}</h4>
-              <p className="p-text" style={{ marginTop: 10 }}>
+            <Box className="app__work-content app__flex">
+              <Typography variant="h6" className="bold-text">{work.title}</Typography>
+              <Typography variant="p" className="p-text" style={{ marginTop: 10 }}>
                 {work.description}
-              </p>
+              </Typography>
 
-              <div className="app__work-tag app__flex">
-                <p className="p-text">{work.tags[0]}</p>
+              <Box className="app__work-tag app__flex">
+                {/* <p className="p-text">{work.tags[0]}</p> */}
                 {/* <p>{work.tech[0]}</p> */}
-              </div>
-            </div>
-          </div>
+              </Box>
+            </Box>
+          </Box>
         ))}
-      </motion.div>
-      {info.map((data) => (
-        <div className="link_button">
-          <AiFillGithub className="githubicon" />
-          <button className="github">
-            <a
-              href={data.github}
-              target="_blank"
-              rel="noreferrer"
-            >
-              Check out GitHub Repository
-            </a>
-          </button>
-        </div>
-      ))}
+      </motion.Box>
+      <Box className="link_button">
+        <AiFillGithub className="githubicon" />
+        <button className="github">
+          <Link href={profile.github} target="_blank" rel="noreferrer">
+            Check out GitHub Repository
+          </Link>
+        </button>
+      </Box>
     </>
   );
 };

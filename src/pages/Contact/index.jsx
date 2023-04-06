@@ -21,8 +21,6 @@ import { profile } from "../../assets/data";
 import { pageStyle } from "../../assets/style";
 import { ThemeColors as qq } from "../../assets/theme";
 
-import "./Contact.css";
-
 const WhiteTextTypography = styled(Typography)({
   color: qq.font,
 });

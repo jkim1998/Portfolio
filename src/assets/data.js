@@ -1,4 +1,4 @@
-import { ViteLogo } from "./index";
+import { ViteLogo, imageError, project1, project2 } from "./index";
 
 export const profile = {
   name: "Jonathan Kim",
@@ -74,7 +74,7 @@ export const others = [
   },
   {
     name: "git",
-    icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original-wordmark.svg",
+    icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg",
   },
   {
     name: "vscode",
@@ -84,20 +84,54 @@ export const others = [
 
 export const projects = [
   {
+    name: "project 1",
+    title: "Movie++",
+    imgUrl: project1,
+    description: "Movie Library ",
     codeLink: "https://github.com/jkim1998/Movie-DB-",
-    description: "API",
     projectLink: "https://movie-db-sand.vercel.app/",
     tags: ["Front End"],
     tech: (3)[("React", "CSS", "TMDB API")],
-    title: "Movie++",
-    _createdAt: "2022-12-16T21:45:39Z",
-    _id: "7d7d536a-ea24-4d20-83c5-11870373211f",
-    _rev: "nk5KEhXxm13zdDvqRyvG2u",
-    _type: "works",
-    _updatedAt: "2023-01-16T02:28:10Z",
   },
   {
-    // another project object
+    name: "project 2",
+    title: "E-Commerce",
+    imgUrl: project2,
+    description: "An Online Shopping website ",
+    codeLink: "https://github.com/jkim1998/Gaming-Gear-Shop",
+    projectLink: "https://gaming-gear-shop.vercel.app/",
+    tags: ["Front End"],
+    tech: (3)[("React", "CSS", "Stripe")],
   },
-  // more project objects
+  {
+    name: "project 3",
+    title: "Finance Management App",
+    imgUrl: imageError,
+    description:
+      "Automatic finance management app. Connected to your bank account securely.",
+    codeLink: "https://github.com/jkim1998/Finance-management-app",
+    projectLink: "https://www.google.com/",
+    tags: ["Front End", "Back End", "Full Stack", "Database", "API", "UI/UX"],
+    tech: (3)[("React", "MUI", "Plaid")],
+  },
+  {
+    name: "project 4",
+    title: "AI Chatroom",
+    imgUrl: imageError,
+    description: "A chatroom. But with Emotional AIs",
+    codeLink: "https://github.com/jkim1998/dashboard-frontend",
+    projectLink: "https://www.google.com/",
+    tags: ["Front End", "Back End", "Full Stack", "Database", "API", "UI/UX"],
+    tech: (3)[("React", "MUI", "Open AI API")],
+  },
+  {
+    name: "project 5",
+    title: "Bug Tracker",
+    imgUrl: imageError,
+    description: "A web version Ticket management system",
+    codeLink: "https://github.com/jkim1998/bug-tracker",
+    projectLink: "https://www.google.com/",
+    tags: ["Front End", "Back End", "Full Stack", "Database", "API", "UI/UX"],
+    tech: (3)[("React", "MUI")],
+  },
 ];
