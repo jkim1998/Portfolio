@@ -260,11 +260,27 @@ const ContactInfo = () => {
             padding: "30px",
           }}
         >
-          <Link href={profile.github} target="_blank" rel="noreferrer" sx={{ transition: "transform 0.2s", "&:hover": { transform: "scale(1.4)" } }}>
-            <AiFillGithub size={40} id="github" fill="black" />
+          <Link
+            href={profile.github}
+            target="_blank"
+            rel="noreferrer"
+            sx={{
+              transition: "transform 0.2s",
+              "&:hover": { transform: "scale(1.4)" },
+            }}
+          >
+            <AiFillGithub size={40} id="github" fill={qq.font} />
           </Link>
-          <Link href={profile.linkedin} target="_blank" rel="noreferrer" sx={{ transition: "transform 0.2s", "&:hover": { transform: "scale(1.4)" } }}>
-            <AiFillLinkedin size={40} id="linkedin" fill="#0072b1" />
+          <Link
+            href={profile.linkedin}
+            target="_blank"
+            rel="noreferrer"
+            sx={{
+              transition: "transform 0.2s",
+              "&:hover": { transform: "scale(1.4)" },
+            }}
+          >
+            <AiFillLinkedin size={40} id="linkedin" fill={qq.font} />
           </Link>
         </Box>
       </Box>
