@@ -92,4 +92,30 @@ Thank you in advance.
 
 ## To-do
 
--string manipulation (phone number, email address)
+-navbar 
+    design
+    home/icon
+
+-main
+    animation. 
+    3d model
+    hide "view my work" button if scrolling down
+    add function to view my work 
+
+-about me 
+    design 
+
+-projects
+    color
+    filter option
+    update with MUI
+
+- contact me 
+    design 
+        make it look like business card 
+
+-overall 
+    maybe change theme color? 
+    main page looks cool 
+    responsiveness 
+    don't use 100vh
