@@ -8,7 +8,6 @@ import "./App.scss";
 import { ThemeColors as qq } from "./assets/theme";
 
 const content = [
-  <Navbar />,
   <Header />,
   <About />,
   // <Skills />,
@@ -16,10 +15,11 @@ const content = [
   <Contact />,
 ];
 
-const bgColors = [qq.sub, qq.main];
+const bgColors = [qq.main, qq.sub];
 
 const App = () => (
   <div className="app">
+    <Navbar />
     {content.map((item, index) => (
       <div
         key={index}

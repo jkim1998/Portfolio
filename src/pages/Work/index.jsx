@@ -65,6 +65,7 @@ const Work = () => {
               className={`app__work-filter-item app__flex p-text ${
                 activeFilter === item ? "item-active" : ""
               }`}
+              sx={{bgcolor: "red"}}
             >
               {item}
             </Box>
@@ -72,13 +73,36 @@ const Work = () => {
         )}
       </Box>
 
-      <motion.Box
-        animate={animateCard}
-        transition={{ duration: 0.5, delayChildren: 0.5 }}
-        className="app__work-portfolio"
+      <Box
+        // animate={animateCard}
+        // transition={{ duration: 0.5, delayChildren: 0.5 }}
+        sx={{
+          // display: "flex",
+          // flexDirection: "row",
+          // flexWrap: "wrap",
+          // justifyContent: "center",
+          // alignItems: "center",
+          bgcolor: "red",
+        }}
       >
         {filterWork.map((work, index) => (
-          <Box className="app__work-item app__flex" key={index}>
+          <Box
+            sx={{
+              width: "270px",
+              flexDirection: "column",
+              margin: "2rem",
+              padding: "1rem",
+              borderRadius: "0.5rem",
+              bgcolor: "#fff",
+              color: "#000",
+              cursor: "pointer",
+              transition: "all 0.3s ease",
+              "&:hover": {
+                boxShadow: "0 0 25px rgba(0, 0, 0, 0.2)"
+              }
+            }}
+            key={index}
+          >
             <Box className="app__work-img app__flex">
               <img src={work.imgUrl} alt={work.name} />
 
@@ -115,8 +139,14 @@ const Work = () => {
             </Box>
 
             <Box className="app__work-content app__flex">
-              <Typography variant="h6" className="bold-text">{work.title}</Typography>
-              <Typography variant="p" className="p-text" style={{ marginTop: 10 }}>
+              <Typography variant="h6" className="bold-text">
+                {work.title}
+              </Typography>
+              <Typography
+                variant="p"
+                className="p-text"
+                style={{ marginTop: 10 }}
+              >
                 {work.description}
               </Typography>
 
@@ -127,7 +157,7 @@ const Work = () => {
             </Box>
           </Box>
         ))}
-      </motion.Box>
+      </Box>
       <Box className="link_button">
         <AiFillGithub className="githubicon" />
         <button className="github">

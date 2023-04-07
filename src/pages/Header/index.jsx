@@ -65,7 +65,16 @@ const Header = () => {
   };
 
   return (
-    <Stack sx={{ ...pageStyle, position: "relative" }}>
+    <Stack
+      sx={{
+        display: "flex",
+        flexDirection: "column",
+        justifyContent: "center",
+        alignItems: "center",
+        position: "relative",
+        height: "100%",
+      }}
+    >
       <Box
         sx={{
           display: "flex",
