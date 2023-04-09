@@ -1,4 +1,5 @@
 import React from 'react';
+import { ThemeColors } from '../../assets/theme';
 
 const NavigationDots = ({ active }) => (
   <div className="app__navigation">
@@ -7,7 +8,7 @@ const NavigationDots = ({ active }) => (
         href={`#${item}`}
         key={item + index}
         className="app__navigation-dot"
-        style={active === item ? { backgroundColor: '#313BAC' } : {}}
+        style={active === item ? { backgroundColor: ThemeColors.accent } : {}}
       />
     ))}
   </div>

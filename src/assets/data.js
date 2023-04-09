@@ -124,14 +124,24 @@ export const projects = [
     tags: ["Front End", "Back End", "Full Stack", "Database", "API", "UI/UX"],
     tech: (3)[("React", "MUI", "Open AI API")],
   },
-  // {
-  //   name: "project 5",
-  //   title: "Bug Tracker",
-  //   imgUrl: imageError,
-  //   description: "A web version Ticket management system",
-  //   codeLink: "https://github.com/jkim1998/bug-tracker",
-  //   projectLink: "https://www.google.com/",
-  //   tags: ["Front End", "Back End", "Full Stack", "Database", "API", "UI/UX"],
-  //   tech: (3)[("React", "MUI")],
-  // },
+  {
+    name: "project 5",
+    title: "Bug Tracker",
+    imgUrl: imageError,
+    description: "A web version Ticket management system",
+    codeLink: "https://github.com/jkim1998/bug-tracker",
+    projectLink: "https://www.google.com/",
+    tags: ["Front End", "Back End", "Full Stack", "Database", "API", "UI/UX"],
+    tech: (3)[("React", "MUI")],
+  },
+];
+
+export const Tags = [
+  "Front End",
+  "Back End",
+  "Full Stack",
+  "Database",
+  "API",
+  "UI/UX",
+  "All"
 ];

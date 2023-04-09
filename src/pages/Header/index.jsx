@@ -182,4 +182,4 @@ const Header = () => {
     </Stack>
   );
 };
-export default AppWrap(MotionWrap(Header, "app__works"), "");
+export default AppWrap(Header, "");

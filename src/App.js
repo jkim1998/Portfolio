@@ -3,7 +3,7 @@ import About from "./pages/About";
 import Skills from "./pages/Skills";
 import Work from "./pages/Work";
 import Contact from "./pages/Contact";
-import { Navbar } from "./components";
+import Navbar from "./components/Navbar/Navbar";
 import "./App.scss";
 import { ThemeColors as qq } from "./assets/theme";
 
