@@ -7,6 +7,7 @@ import {
   Avatar,
   Link,
   Button,
+  useMediaQuery,
 } from "@mui/material";
 import { AppWrap } from "../../wrapper";
 import { profile, projects, Tags } from "../../assets/data";
@@ -17,6 +18,7 @@ const Work = () => {
   const [activeFilter, setActiveFilter] = useState("All");
   const [works, setWorks] = useState([]);
   const [animateCard, setAnimateCard] = useState({ y: 0, opacity: 1 });
+  const res500 = useMediaQuery("(min-width:500px)");
 
   useEffect(() => {
     setWorks(projects);
@@ -36,6 +38,7 @@ const Work = () => {
       }
     }, 500);
   };
+
   return (
     <Box
       sx={{
@@ -55,7 +58,7 @@ const Work = () => {
         activeFilter={activeFilter}
       />
       <ProjectGrid filterWork={filterWork} />
-      <Footer />
+      <Footer/>
     </Box>
   );
 };
@@ -111,20 +114,18 @@ const TagFilter = ({ handleWorkFilter, activeFilter, setActiveFilter }) => {
 };
 
 const ProjectGrid = ({ filterWork }) => {
-  const [hovered, setHovered] = useState(false);
+  const [hovered, setHovered] = useState(Array(filterWork.length).fill(false));
 
-  const handleMouseEnter = () => {
-    setHovered(true);
+  const handleMouseEnter = (index) => {
+    setHovered(hovered.map((value, i) => i === index));
   };
 
-  const handleMouseLeave = () => {
-    setHovered(false);
+  const handleMouseLeave = (index) => {
+    setHovered(hovered.map((value, i) => false));
   };
 
   return (
     <Box
-      onMouseEnter={handleMouseEnter}
-      onMouseLeave={handleMouseLeave}
       sx={{
         display: "grid",
         gridTemplateColumns: "repeat(auto-fit,300px)",
@@ -153,6 +154,8 @@ const ProjectGrid = ({ filterWork }) => {
             textOverflow: "ellipsis",
           }}
           key={index}
+          onMouseEnter={() => handleMouseEnter(index)}
+          onMouseLeave={() => handleMouseLeave(index)}
         >
           <Box
             sx={{
@@ -172,7 +175,7 @@ const ProjectGrid = ({ filterWork }) => {
               src={work.imgUrl}
               alt={work.name}
             />
-            <Overlay work={work} hovered={hovered} />
+            <Overlay work={work} hovered={hovered[index]} />
           </Box>
 
           <Box
@@ -255,7 +258,7 @@ const Overlay = ({ work, hovered, handleMouseEnter, handleMouseLeave }) => {
   );
 };
 
-const Footer = () => {
+const Footer = ({ res500 }) => {
   return (
     <>
       <Button
@@ -263,8 +266,8 @@ const Footer = () => {
           display: "flex",
           flexDirection: "row",
           alignItems: "center",
-          position: "absolute",
-          bottom: 0,
+          position: res500 && "absolute",
+          bottom: res500 && 0,
           bgcolor: ThemeColors.thrid,
           borderRadius: "0.5rem",
           padding: "0.5rem",

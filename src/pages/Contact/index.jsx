@@ -9,6 +9,7 @@ import {
   Switch,
   Link,
   TextField,
+  useMediaQuery,
 } from "@mui/material";
 import emailjs from "@emailjs/browser";
 import { AiFillGithub, AiFillLinkedin, AiOutlineBold } from "react-icons/ai";
@@ -49,6 +50,11 @@ const ValidationTextField = styled(TextField)({
 });
 
 const Contact = () => {
+  const res500 = useMediaQuery("(min-width:500px)");
+  const res900 = useMediaQuery("(min-width:900px)");
+  const res950 = useMediaQuery("(min-width:950px)");
+  const res1000 = useMediaQuery("(min-width:1000px)");
+
   return (
     <Stack sx={{ ...pageStyle, position: "relative" }}>
       <Box
@@ -68,7 +74,7 @@ const Contact = () => {
             padding: "2rem",
           }}
         >
-          <WhiteTextTypography variant="h3">Contact Me</WhiteTextTypography>
+          <WhiteTextTypography variant={res1000 ? "h6" : "h3"}>Contact Me</WhiteTextTypography>
         </Box>
         <Box
           sx={{
@@ -83,14 +89,14 @@ const Contact = () => {
           }}
         >
           <EmailForm />
-          <ContactInfo />
+          {res1000 && <ContactInfo />}
         </Box>
       </Box>
     </Stack>
   );
 };
 
-const EmailForm = () => {
+const EmailForm = ({ res1000 }) => {
   const form = useRef();
   const [status, setStatus] = useState("");
 
@@ -137,7 +143,7 @@ const EmailForm = () => {
       sx={{
         display: "flex",
         flexDirection: "column",
-        width: "40%",
+        width: "100%"
       }}
     >
       {status === "SUCCESS" && renderAlert_success()}
@@ -198,7 +204,7 @@ const ContactInfo = () => {
     alignItems: "center",
     gap: "3rem",
     marginY: "1rem",
-    marginLeft: "4rem",
+    marginLeft: "2rem",
   };
 
   return (
@@ -234,7 +240,7 @@ const ContactInfo = () => {
 
         <Box sx={{ ...Label }}>
           <GrMail size="2rem" fill={qq.accent} />
-          <WhiteTextTypography>{profile.email}</WhiteTextTypography>
+          <WhiteTextTypography variant="subtitle2">{profile.email}</WhiteTextTypography>
         </Box>
       </Box>
       <Box

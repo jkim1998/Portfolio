@@ -1,12 +1,18 @@
 import React, { useState } from "react";
 import { profile } from "../../assets/data";
 import { AiOutlineDown } from "react-icons/ai";
-import { Box, Stack, Button, Typography, Link } from "@mui/material";
-import { pageStyle } from "../../assets/style";
+import {
+  Box,
+  Stack,
+  Button,
+  Typography,
+  Link,
+  useMediaQuery,
+} from "@mui/material";
 import { BsGithub } from "react-icons/bs";
 import { FaLinkedinIn } from "react-icons/fa";
 import { keyframes } from "@emotion/react";
-import { AppWrap, MotionWrap } from "../../wrapper";
+import { AppWrap } from "../../wrapper";
 
 const jump = keyframes`
   0% {
@@ -55,6 +61,10 @@ const customButton = {
 
 const Header = () => {
   const [hovering, setHovering] = useState(true);
+  const res700 = useMediaQuery("(min-width:500px)");
+  const res800 = useMediaQuery("(min-width:800px)");
+  const res900 = useMediaQuery("(min-width:900px)");
+  const res950 = useMediaQuery("(min-width:950px)");
 
   const handleMouseEnter = () => {
     setHovering(false);
@@ -73,6 +83,8 @@ const Header = () => {
         alignItems: "center",
         position: "relative",
         height: "100%",
+        width: "100%",
+        textAlign: "center",
       }}
     >
       <Box
@@ -86,17 +98,19 @@ const Header = () => {
         }}
       >
         <Stack
-          direction="row"
+          direction={res900 ? "row" : "column"}
           sx={{
-            textAlign: "flex end",
-            alignItems: "flex-end",
+            textAlign: "center",
+            alignItems: "center",
           }}
         >
-          <Typography variant="h2" sx={{ color: "white" }}>
-            Hello! My Name is &nbsp;
-          </Typography>
+          {res900 && (
+            <Typography variant="h2" sx={{ color: "white" }}>
+              Hello! My Name is &nbsp;
+            </Typography>
+          )}
           <Typography
-            variant="h2"
+            variant={res900 ? "h2" : "h3"}
             sx={{
               color: "skyblue",
               borderBottom: "2px solid skyblue",
@@ -106,9 +120,12 @@ const Header = () => {
             {profile.name}
           </Typography>
         </Stack>
-        <Typography variant="h3" sx={{ color: "white" }}>
-          I am a {profile.title}
-        </Typography>
+
+        {res900 && (
+          <Typography variant={res900 ? "h4" : "h3"} sx={{ color: "white" }}>
+            I am a {profile.title}
+          </Typography>
+        )}
       </Box>
       <Box
         sx={{
@@ -117,7 +134,11 @@ const Header = () => {
           gap: "1rem",
         }}
       >
-        <Link sx={{ ...customButton }} href={profile.resume} target="_blank">
+        <Link
+          sx={{ ...customButton, textDecoration: "none" }}
+          href={profile.resume}
+          target="_blank"
+        >
           My Resume
         </Link>
       </Box>
@@ -126,6 +147,7 @@ const Header = () => {
           position: "absolute",
           bottom: "0%",
           left: "50%",
+          width: "100%",
           transform: "translateX(-50%)",
           display: "flex",
           flexDirection: "column",
@@ -134,52 +156,61 @@ const Header = () => {
           gap: "1rem",
         }}
       >
-        <Box sx={{ display: "flex", gap: "2rem" }}>
-          <Link
-            sx={{
-              "&:hover svg": {
-                fill: "skyblue",
-              },
-            }}
-            href={profile.github}
-            target="_blank"
-          >
-            <BsGithub fill="white" />
+        {res800 && (
+          <Box sx={{ display: "flex", gap: "2rem" }}>
+            <Link
+              sx={{
+                "&:hover svg": {
+                  fill: "skyblue",
+                },
+              }}
+              href={profile.github}
+              target="_blank"
+            >
+              <BsGithub fill="white" />
+            </Link>
+            <Link
+              sx={{
+                "&:hover svg": {
+                  fill: "skyblue",
+                },
+              }}
+              href={profile.linkedin}
+              target="_blank"
+            >
+              <FaLinkedinIn fill="white" />
+            </Link>
+          </Box>
+        )}
+        {res950 && (
+          <Typography sx={{ color: "grey", width: "100%" }}>
+            Copyright &copy; 2023 - Jonathan Kim - All rights Reserved
+          </Typography>
+        )}
+        {res700 && (
+          <Link href="#about" sx={{textDecoration: "none"}}>
+            <Button
+              sx={{
+                display: "flex",
+                flexDirection: "column",
+                marginTop: "2rem",
+                color: "skyblue",
+                "&:hover": {
+                  color: "white",
+                },
+                animation:
+                  res800 && hovering ? `${jump} 0.7s infinite` : "none",
+              }}
+              onMouseEnter={handleMouseEnter}
+              onMouseLeave={handleMouseLeave}
+            >
+              View my work
+              <AiOutlineDown fill="white" />
+            </Button>
           </Link>
-          <Link
-            sx={{
-              "&:hover svg": {
-                fill: "skyblue",
-              },
-            }}
-            href={profile.linkedin}
-            target="_blank"
-          >
-            <FaLinkedinIn fill="white" />
-          </Link>
-        </Box>
-        <Typography sx={{ color: "grey" }}>
-          Copyright &copy; 2023 - Jonathan Kim - All rights Reserved
-        </Typography>
-        <Button
-          sx={{
-            display: "flex",
-            flexDirection: "column",
-            marginTop: "2rem",
-            color: "skyblue",
-            "&:hover": {
-              color: "white",
-            },
-            animation: hovering ? `${jump} 0.7s infinite` : "none",
-          }}
-          onMouseEnter={handleMouseEnter}
-          onMouseLeave={handleMouseLeave}
-        >
-          View my work
-          <AiOutlineDown fill="white" />
-        </Button>
+        )}
       </Box>
     </Stack>
   );
 };
-export default AppWrap(Header, "");
+export default AppWrap(Header, "home");

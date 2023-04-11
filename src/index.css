@@ -6,6 +6,9 @@ html, body, :root {
   padding: 0;
   margin: 0;
 }
+body {
+  padding-right: calc(100vw - 100%);
+}
 
 :root {
   --font-base: "DM Sans", sans-serif;

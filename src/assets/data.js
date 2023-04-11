@@ -1,14 +1,25 @@
 import { ViteLogo, imageError, project1, project2 } from "./index";
 
+const Age = ({ birthdate }) => {
+  const today = new Date();
+  let age = today.getFullYear() - birthdate.getFullYear();
+  const m = today.getMonth() - birthdate.getMonth();
+  if (m < 0 || (m === 0 && today.getDate() < birthdate.getDate())) {
+    age--;
+  }
+  return age;
+};
+
 export const profile = {
   name: "Jonathan Kim",
+  birthdate: "1998-02-23",
   title: "Full Stack Web Developer",
   email: "JonathanKim980@gmail.com",
-  phone: "7374842504",
+  phone: "(737) 484-2504",
   degree: "B.S. Computer Science",
   school: "University of Texas at Dallas",
   github: "https://github.com/jkim1998",
-  linkedin: "https://www.linkedin.com/in/jkim980/",
+  linkedin: "https://www.linkedin.com/in/jkim980/", 
   resume:
     "https://drive.google.com/file/d/1lcsy64CxMxMLtbo4AtM7VAqnaVwsJCIc/view?usp=sharing",
 };
@@ -143,5 +154,5 @@ export const Tags = [
   "Database",
   "API",
   "UI/UX",
-  "All"
+  "All",
 ];
