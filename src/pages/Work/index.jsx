@@ -58,7 +58,7 @@ const Work = () => {
         activeFilter={activeFilter}
       />
       <ProjectGrid filterWork={filterWork} />
-      <Footer/>
+      <Footer />
     </Box>
   );
 };
@@ -114,14 +114,14 @@ const TagFilter = ({ handleWorkFilter, activeFilter, setActiveFilter }) => {
 };
 
 const ProjectGrid = ({ filterWork }) => {
-  const [hovered, setHovered] = useState(Array(filterWork.length).fill(false));
+  const [hovered, setHovered] = useState(-1);
 
   const handleMouseEnter = (index) => {
-    setHovered(hovered.map((value, i) => i === index));
+    setHovered(index);
   };
 
-  const handleMouseLeave = (index) => {
-    setHovered(hovered.map((value, i) => false));
+  const handleMouseLeave = () => {
+    setHovered(-1);
   };
 
   return (
@@ -155,7 +155,7 @@ const ProjectGrid = ({ filterWork }) => {
           }}
           key={index}
           onMouseEnter={() => handleMouseEnter(index)}
-          onMouseLeave={() => handleMouseLeave(index)}
+          onMouseLeave={handleMouseLeave}
         >
           <Box
             sx={{
@@ -175,7 +175,13 @@ const ProjectGrid = ({ filterWork }) => {
               src={work.imgUrl}
               alt={work.name}
             />
-            <Overlay work={work} hovered={hovered[index]} />
+            {hovered === index && (
+              <Overlay
+                work={work}
+                handleMouseEnter={() => handleMouseEnter(index)}
+                handleMouseLeave={handleMouseLeave}
+              />
+            )}
           </Box>
 
           <Box
@@ -207,6 +213,7 @@ const ProjectGrid = ({ filterWork }) => {
     </Box>
   );
 };
+
 const Overlay = ({ work, hovered, handleMouseEnter, handleMouseLeave }) => {
   return (
     <Box
@@ -216,8 +223,8 @@ const Overlay = ({ work, hovered, handleMouseEnter, handleMouseLeave }) => {
         left: 0,
         height: "100%",
         width: "100%",
-        backgroundColor: "rgba(0, 0, 0, 0.7)",
-        opacity: hovered ? 1 : 0,
+        bgcolor: ThemeColors.main,
+        opacity: hovered ? 0 : 0.5,
         transition: "opacity 0.3s ease",
         display: "flex",
         justifyContent: "center",

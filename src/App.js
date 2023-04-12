@@ -9,8 +9,8 @@ import { ThemeColors as qq } from "./assets/theme";
 
 const content = [
   <Header />,
-  <About />,
-  // <Skills />,
+  // <About />,
+  <Skills />,
   <Work />,
   <Contact />,
 ];
