@@ -14,7 +14,7 @@ import { Profile_pic } from "../../assets";
 import { GrStackOverflow } from "react-icons/gr";
 import { FaGlobe } from "react-icons/fa";
 import { GiPencilBrush } from "react-icons/gi";
-import { frontend, backend, others } from "../../assets/data";
+import { frontend, backend, others, techstack } from "../../assets/data";
 import { AppWrap, MotionWrap } from "../../wrapper";
 
 const stackStyle = {
@@ -27,15 +27,6 @@ const stackStyle = {
   padding: "2rem",
 };
 
-const columnStyle = {
-  display: "flex",
-  flexDirection: "column",
-  padding: "2rem",
-  bgcolor: "skyblue",
-  height: "80%",
-  width: "25%",
-};
-
 const WhiteTextTypography = styled(Typography)({
   color: "white",
 });
@@ -45,34 +36,22 @@ const About = () => {
     <Stack
       sx={{
         ...pageStyle,
-        flexDirection: "row",
         justifyContent: "space-between",
-        alignItems: "flex-start",
-        bgcolor: "white",
-        width: "90vw",
       }}
     >
-      <Column1 />
-      <Column2 />
-      <Column3 />
-    </Stack>
-  );
-};
-
-const Column1 = () => {
-  return <Stack sx={{ ...columnStyle }}>Profile</Stack>;
-};
-const Column2 = () => {
-  return (
-    <Stack sx={{ ...columnStyle, marginTop: "10%" }}>
-      Technologies
-    </Stack>
-  );
-};
-const Column3 = () => {
-  return (
-    <Stack sx={{ ...columnStyle, marginTop: "20%" }}>
-      Experience
+      <Stack
+        sx={{
+          width: "100%",
+          display: "flex",
+          justifyContent: "center",
+          alignItems: "center",
+          marginTop: "8rem",
+        }}
+      >
+        <ProfileCard />
+      </Stack>
+      {/* <Services /> */}
+      <Language />
     </Stack>
   );
 };
@@ -198,7 +177,6 @@ const ProfileCard = () => {
         />
         <Avatar
           src={Profile_pic}
-          alt="profile pic"
           variant="square"
           sx={{
             height: "100%",
@@ -207,10 +185,10 @@ const ProfileCard = () => {
         />
       </Box>
       <Box>
-        <Switch
+        {/* <Switch
           checked={profilemode === "backend"}
           onChange={() => toggleProfile()}
-        />{" "}
+        />{" "} */}
         {/* use the Switch component */}
         {profilemode === "frontend" ? (
           <Profile_frontend />
@@ -341,11 +319,75 @@ const Language = () => {
           gap: "2rem",
         }}
       >
-        <SkillsCard item={frontend} title="Front End" />
-        <SkillsCard item={backend} title="Back End" />
-        <SkillsCard item={others} title="Others" />
+        <SkillsSection item={techstack} title="Tech Stack" />
+        {/* <SkillsCard item={backend} title="Back End" /> */}
+        {/* <SkillsCard item={others} title="Others" /> */}
       </Box>
     </Stack>
+  );
+};
+
+const SkillsSection = ({ title, item }) => {
+  return (
+    <>
+      <Box sx={{ display: "flex", flexDirection: "row" }}>
+        <Stack
+          sx={{
+            bgcolor: "#0F161C",
+            display: "flex",
+            flexDirection: "column",
+            alignItems: "center",
+            padding: "1rem",
+            borderRadius: "1.5rem",
+          }}
+        >
+          <WhiteTextTypography sx={{ color: "white" }}>
+            {title}
+          </WhiteTextTypography>
+          <Stack
+            sx={{
+              display: "grid",
+              gridTemplateColumns: "auto auto auto auto auto auto auto auto",
+              justifyContent: "center",
+              alignItems: "center",
+              width: "100%",
+            }}
+          >
+            {item.map((skill) => (
+              <Stack
+                whileInView={{ opacity: [0, 1] }}
+                transition={{ duration: 0.5 }}
+                sx={{
+                  flexDirection: "column",
+                  textAlign: "center",
+                  margin: "1rem",
+                  transition: "all 0.3s ease-in-out",
+                }}
+                key={skill.name}
+              >
+                <Stack
+                  sx={{
+                    display: "flex",
+                    flexDirection: "row",
+                    justifyContent: "center",
+                    alignItems: "center",
+                    bgcolor: "white",
+                    borderRadius: "50%",
+                    width: "90px",
+                    height: "90px",
+                  }}
+                >
+                  <Avatar variant="square" src={skill.icon} alt={skill.name} />
+                </Stack>
+                <WhiteTextTypography sx={{ color: "white" }}>
+                  {skill.name}
+                </WhiteTextTypography>
+              </Stack>
+            ))}
+          </Stack>
+        </Stack>
+      </Box>
+    </>
   );
 };
 
@@ -376,7 +418,7 @@ const SkillsCard = ({ title, item }) => {
           >
             {item.map((skill) => (
               <Stack
-                // whileInView={{ opacity: [0, 1] }}
+                whileInView={{ opacity: [0, 1] }}
                 transition={{ duration: 0.5 }}
                 sx={{
                   flexDirection: "column",
@@ -398,7 +440,7 @@ const SkillsCard = ({ title, item }) => {
                     height: "90px",
                   }}
                 >
-                  <Avatar variant="square" src={skill.icon} alt="skill name" />
+                  <Avatar variant="square" src={skill.icon} alt={skill.name} />
                 </Stack>
                 <WhiteTextTypography sx={{ color: "white" }}>
                   {skill.name}

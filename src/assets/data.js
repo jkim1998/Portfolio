@@ -19,10 +19,63 @@ export const profile = {
   degree: "B.S. Computer Science",
   school: "University of Texas at Dallas",
   github: "https://github.com/jkim1998",
-  linkedin: "https://www.linkedin.com/in/jkim980/", 
+  linkedin: "https://www.linkedin.com/in/jkim980/",
   resume:
     "https://drive.google.com/file/d/1lcsy64CxMxMLtbo4AtM7VAqnaVwsJCIc/view?usp=sharing",
+  summary:
+    "Hello! I am a Front-End Web Developer who is dedicated to delivering high-quality work and exceeding expectations in every project I undertake. I am constantly seeking opportunities to learn and grow, and I am excited to contribute my expertise to new challenges and projects. Thank you for taking the time to visit my portfolio website, and I look forward to connecting with you soon!",
 };
+
+export const techstack = [
+  {
+    name: "HTML",
+    icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg",
+  },
+  {
+    name: "CSS",
+    icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg",
+  },
+  {
+    name: "Javascript",
+    icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg",
+  },
+  {
+    name: "Typescript",
+    icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/typescript/typescript-original.svg",
+  },
+  {
+    name: "React.js",
+    icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg",
+  },
+  {
+    name: "Node.js",
+    icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg",
+  },
+  {
+    name: "Express.js",
+    icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/express/express-original.svg",
+  },
+  {
+    name: "Java",
+    icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/java/java-original-wordmark.svg",
+  },
+  {
+    name: "python",
+    icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original-wordmark.svg",
+  },
+  {
+    name: "MongoDB",
+    icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mongodb/mongodb-original.svg",
+  },
+  {
+    name: "MySQL",
+    icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original-wordmark.svg",
+  },
+  {
+    name: "git",
+    icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg",
+  },
+];
 
 export const frontend = [
   {
